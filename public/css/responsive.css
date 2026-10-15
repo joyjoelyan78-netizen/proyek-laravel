@@ -1,0 +1,465 @@
+/* =====================================================
+   RESPONSIVE: HP, TABLET, DESKTOP
+   Dimuat PALING AKHIR di layouts/frontend.blade.php,
+   jadi aturan di sini menimpa CSS tiap halaman.
+
+   Titik patah yang dipakai:
+     <= 1024px  tablet     (navbar jadi hamburger)
+     <=  768px  tablet kecil / HP besar
+     <=  560px  HP
+===================================================== */
+
+
+/* ---------- DASAR: cegah layar bisa digeser ke samping ---------- */
+
+html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+img,
+video,
+iframe {
+    max-width: 100%;
+}
+
+main {
+    overflow-x: clip;
+}
+
+
+/* =====================================================
+   CHATBOT (dipakai semua halaman)
+   Sebelumnya gaya chatbot hanya ada di CSS tiap halaman,
+   sehingga halaman baru (penawaran, konsultasi) tampil rusak.
+===================================================== */
+
+#chatbot-toggle {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    width: 65px;
+    height: 65px;
+    border: none;
+    border-radius: 50%;
+    background: #0d6efd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 28px;
+    cursor: pointer;
+    z-index: 9999;
+    box-shadow: 0 0 20px rgba(13, 110, 253, .5);
+    transition: .3s;
+    animation: vescaPulse 2s infinite;
+}
+
+#chatbot-toggle:hover {
+    transform: scale(1.1);
+}
+
+@keyframes vescaPulse {
+    0%   { box-shadow: 0 0 0 0 rgba(13, 110, 253, .7); }
+    70%  { box-shadow: 0 0 0 18px rgba(13, 110, 253, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(13, 110, 253, 0); }
+}
+
+#chatbot-box {
+    position: fixed;
+    right: 25px;
+    bottom: 100px;
+    width: 380px;
+    max-width: calc(100vw - 24px);
+    height: 550px;
+    max-height: calc(100vh - 120px);
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    z-index: 9999;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, .25);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(30px) scale(.95);
+    transition: opacity .3s ease, transform .3s ease, visibility .3s ease;
+}
+
+#chatbot-box.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
+.chat-header {
+    background: #0d6efd;
+    color: #fff;
+    padding: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+}
+
+.chat-title {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+#close-chat {
+    cursor: pointer;
+    padding: 4px 8px;
+}
+
+#chat-messages {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    background: #f5f7fb;
+}
+
+.user-message {
+    background: #0d6efd;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 15px 15px 0 15px;
+    margin-bottom: 12px;
+    max-width: 80%;
+    margin-left: auto;
+    word-wrap: break-word;
+}
+
+.bot-message {
+    background: #fff;
+    padding: 10px 15px;
+    border-radius: 15px 15px 15px 0;
+    margin-bottom: 12px;
+    max-width: 80%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .08);
+    word-wrap: break-word;
+}
+
+.chat-input {
+    display: flex;
+    border-top: 1px solid #eee;
+}
+
+.chat-input input {
+    flex: 1;
+    min-width: 0;
+    border: none;
+    padding: 15px;
+    outline: none;
+}
+
+.chat-input button {
+    width: 60px;
+    border: none;
+    background: #0d6efd;
+    color: #fff;
+    cursor: pointer;
+}
+
+.chat-input button:hover {
+    background: #0b5ed7;
+}
+
+.typing {
+    background: #fff;
+    width: 70px;
+    padding: 12px;
+    border-radius: 15px;
+    display: flex;
+    gap: 5px;
+}
+
+.typing span {
+    width: 8px;
+    height: 8px;
+    background: #999;
+    border-radius: 50%;
+    animation: vescaTyping 1s infinite;
+}
+
+.typing span:nth-child(2) { animation-delay: .2s; }
+.typing span:nth-child(3) { animation-delay: .4s; }
+
+@keyframes vescaTyping {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-5px); }
+}
+
+
+/* =====================================================
+   NAVBAR TABLET (1025px - 1250px): rapatkan jarak menu
+   supaya tidak menabrak logo dan kotak pencarian
+===================================================== */
+
+@media (min-width: 1025px) and (max-width: 1250px) {
+
+    .menu {
+        gap: clamp(24px, 3.6vw, 70px);
+    }
+
+    .nav-container {
+        padding: 0 28px;
+    }
+
+    .box {
+        right: 28px;
+    }
+}
+
+
+/* =====================================================
+   TABLET + HP  (<= 1024px)
+===================================================== */
+
+@media (max-width: 1024px) {
+
+    /* Menu "Layanan" hanya dibuka lewat klik (bukan hover), supaya
+       tidak ikut terbuka sendiri di layar sentuh */
+    .dropdown:not(.mobile-open):hover .dropdown-menu {
+        transform: scaleY(0);
+    }
+
+    /* Tentang Kami: kartu 4 kolom -> 2 kolom */
+    .tentang-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .tentang-header h1 {
+        font-size: 44px;
+    }
+
+    .visi-item {
+        grid-template-columns: 180px 1fr;
+        gap: 28px;
+    }
+
+    /* Halaman layanan baru */
+    .lf-page {
+        padding: 100px 24px 80px;
+    }
+}
+
+
+/* =====================================================
+   TABLET KECIL + HP  (<= 768px)
+===================================================== */
+
+@media (max-width: 768px) {
+
+    /* huruf kolom isian minimal 16px, supaya iPhone tidak
+       memperbesar (zoom) halaman saat kolom disentuh */
+    input,
+    select,
+    textarea {
+        font-size: 16px;
+    }
+
+    /* Footer: abaikan <br> paksaan dari teks desktop */
+    .footer-left p br {
+        display: none;
+    }
+
+    /* ---------- Tentang Kami ---------- */
+    .tentang-page {
+        padding: 90px 20px 60px;
+    }
+
+    .tentang-header h1 {
+        font-size: 34px;
+    }
+
+    .tentang-header p {
+        font-size: 17px;
+    }
+
+    .tentang-text h2 {
+        font-size: 28px;
+    }
+
+    .tentang-text p {
+        font-size: 16px;
+    }
+
+    .tentang-card {
+        padding: 28px 22px;
+    }
+
+    .tentang-card i {
+        font-size: 44px;
+    }
+
+    .tentang-card h3 {
+        font-size: 20px;
+    }
+
+    .visi-misi h2 {
+        font-size: 30px;
+    }
+
+    .visi-item {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .visi-item h3 {
+        font-size: 24px;
+    }
+
+    .visi-item p {
+        font-size: 16px;
+    }
+
+    /* ---------- Hubungi Kami ---------- */
+    .kontak-page {
+        padding: 90px 16px 60px;
+    }
+
+    .kontak-map {
+        height: 300px;
+    }
+
+    .kontak-map iframe {
+        height: 100%;
+    }
+
+    .kontak-box {
+        padding: 24px 18px;
+        gap: 30px;
+    }
+
+    .kontak-info p {
+        font-size: 16px;
+    }
+
+    .kontak-form button {
+        height: 52px;
+    }
+
+    /* ---------- Detail produk ---------- */
+    .detail-spec {
+        overflow-x: auto;
+    }
+
+    .detail-wa-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* ---------- Penawaran & Konsultasi ---------- */
+    .lf-page {
+        padding: 90px 16px 70px;
+    }
+
+    .lf-side {
+        position: static;
+        order: 0;       /* formulir tampil lebih dulu, panduan langkah di bawahnya */
+    }
+
+    .lf-hero h1 {
+        font-size: 30px;
+    }
+
+    .lf-hero p {
+        font-size: 15px;
+    }
+
+    .lf-quicknav {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding-bottom: 8px;
+        margin-left: -4px;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .lf-quicknav a {
+        flex-shrink: 0;
+    }
+
+    .lf-field input,
+    .lf-field select,
+    .lf-field textarea,
+    .lf-item select,
+    .lf-item input {
+        font-size: 16px;
+    }
+
+    .lf-actions .lf-btn {
+        width: 100%;
+    }
+}
+
+
+/* =====================================================
+   HP  (<= 560px)
+===================================================== */
+
+@media (max-width: 560px) {
+
+    .tentang-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .tentang-header h1 {
+        font-size: 30px;
+    }
+
+    /* chatbot memenuhi lebar layar HP */
+    #chatbot-toggle {
+        right: 14px;
+        bottom: 14px;
+        width: 56px;
+        height: 56px;
+        font-size: 24px;
+    }
+
+    #chatbot-box {
+        left: 10px;
+        right: 10px;
+        bottom: 80px;
+        width: auto;
+        max-width: none;
+        height: 70vh;
+        max-height: calc(100vh - 100px);
+        border-radius: 16px;
+    }
+
+    .chat-input input {
+        font-size: 16px;
+    }
+
+    .lf-block {
+        padding: 22px 16px;
+    }
+
+    .lf-card {
+        padding: 22px 16px;
+    }
+
+    .lf-section-title {
+        font-size: 16px;
+    }
+
+    .lf-nomor strong {
+        font-size: 20px;
+    }
+}
+
+
+/* gunakan tinggi layar dinamis (bar alamat HP naik-turun) jika didukung */
+@supports (height: 100dvh) {
+
+    @media (max-width: 560px) {
+
+        #chatbot-box {
+            height: 70dvh;
+            max-height: calc(100dvh - 100px);
+        }
+    }
+}

@@ -1,0 +1,358 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Syne:wght@700;800&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+    --hijau:#4a5e2a;
+    --hijau-bg:#f0f4e8;
+
+    --biru:#1e2b4a;
+
+    --abu:#6b7280;
+    --abu-muda:#f3f4f6;
+
+    --border:#e5e7eb;
+
+    --putih:#ffffff;
+
+    --teks:#1f2937;
+
+    --shadow:0 4px 24px rgba(0,0,0,0.08);
+
+    --radius:14px;
+}
+
+body{
+    font-family:'Plus Jakarta Sans', sans-serif;
+    background:#f8f9f5;
+    color:var(--teks);
+    padding:40px 16px 80px;
+}
+
+/* =========================================================
+   WRAPPER
+========================================================= */
+
+.claim-wrapper{
+    max-width:720px;
+    margin:0 auto;
+}
+
+/* =========================================================
+   STEP
+========================================================= */
+
+.step-wrapper{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-bottom:36px;
+}
+
+.step{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:6px;
+}
+
+.circle{
+    width:44px;
+    height:44px;
+    border-radius:50%;
+    background:#d1d5db;
+    color:#9ca3af;
+    font-weight:700;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.step span{
+    font-size:11px;
+    color:#9ca3af;
+    font-weight:600;
+}
+
+.step.active .circle{
+    background:var(--biru);
+    color:#fff;
+}
+
+.step.active span{
+    color:var(--biru);
+}
+
+.step.done .circle{
+    background:var(--hijau);
+    color:#fff;
+}
+
+.step.done span{
+    color:var(--hijau);
+}
+
+.line{
+    width:60px;
+    height:2px;
+    background:#d1d5db;
+    margin-bottom:18px;
+}
+
+.line.active{
+    background:var(--hijau);
+}
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.claim-card{
+    background:#fff;
+    border-radius:var(--radius);
+    border:1px solid var(--border);
+    box-shadow:var(--shadow);
+    padding:32px 28px;
+}
+
+.claim-card h1{
+    font-size:28px;
+    font-family:'Syne', sans-serif;
+    margin-bottom:6px;
+    color:var(--biru);
+}
+
+.subtitle{
+    color:var(--abu);
+    font-size:14px;
+    margin-bottom:32px;
+}
+
+/* =========================================================
+   ALERT
+========================================================= */
+
+.error-alert{
+    background:#fef2f2;
+    border:1px solid #fecaca;
+    color:#b91c1c;
+    padding:16px;
+    border-radius:12px;
+    margin-bottom:24px;
+    font-size:14px;
+}
+
+.error-alert ul{
+    padding-left:18px;
+}
+
+.error-alert li{
+    margin-bottom:6px;
+}
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.form-group{
+    margin-bottom:24px;
+}
+
+.form-group label{
+    display:block;
+    margin-bottom:10px;
+    font-size:14px;
+    font-weight:600;
+    color:var(--teks);
+}
+
+.form-group input{
+    width:100%;
+    height:54px;
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:0 16px;
+    font-size:14px;
+    font-family:'Plus Jakarta Sans', sans-serif;
+    transition:0.3s;
+    background:#fff;
+}
+
+.form-group input:focus{
+    outline:none;
+    border-color:var(--biru);
+    box-shadow:0 0 0 4px rgba(30,43,74,0.08);
+}
+
+.form-group input[readonly]{
+    background:#f9fafb;
+    color:#6b7280;
+}
+
+.form-group small{
+    display:block;
+    margin-top:8px;
+    font-size:12px;
+    color:var(--abu);
+}
+
+/* =========================================================
+   UPLOAD
+========================================================= */
+
+.upload-box{
+    border:2px dashed #cbd5e1;
+    border-radius:14px;
+    padding:36px 20px;
+    text-align:center;
+    cursor:pointer;
+    transition:0.3s;
+    background:#fafafa;
+}
+
+.upload-box:hover{
+    border-color:var(--biru);
+    background:#f8fafc;
+}
+
+.upload-box i{
+    font-size:28px;
+    color:var(--biru);
+    margin-bottom:12px;
+}
+
+.upload-box h4{
+    font-size:16px;
+    margin-bottom:6px;
+    color:var(--biru);
+}
+
+.upload-box p{
+    font-size:13px;
+    color:var(--abu);
+}
+
+.upload-success{
+    margin-top:16px;
+    background:var(--hijau-bg);
+    border:1px solid #cfe0b1;
+    color:var(--hijau);
+    padding:14px 16px;
+    border-radius:12px;
+    font-size:13px;
+    display:none;
+    align-items:center;
+    gap:10px;
+    line-height:1.6;
+}
+
+/* =========================================================
+   INFO BOX
+========================================================= */
+
+.info-box{
+    margin-top:24px;
+    background:#e0f2fe;
+    border:1px solid #bae6fd;
+    padding:18px;
+    border-radius:12px;
+
+    display:flex;
+    gap:14px;
+    align-items:flex-start;
+}
+
+.info-box span{
+    width:26px;
+    height:26px;
+    border-radius:50%;
+    background:#0284c7;
+    color:#fff;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:13px;
+    font-weight:700;
+    flex-shrink:0;
+}
+
+.info-box p{
+    font-size:13px;
+    line-height:1.7;
+    color:#0f172a;
+}
+
+/* =========================================================
+   BUTTON
+========================================================= */
+
+.button-wrapper{
+    display:flex;
+    gap:14px;
+    margin-top:36px;
+}
+
+.btn-back,
+.btn-next{
+    flex:1;
+    height:52px;
+    border:none;
+    border-radius:12px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    text-decoration:none;
+
+    font-size:14px;
+    font-weight:700;
+
+    transition:0.3s;
+    cursor:pointer;
+}
+
+.btn-back{
+    background:#e5e7eb;
+    color:#374151;
+}
+
+.btn-back:hover{
+    background:#d1d5db;
+}
+
+.btn-next{
+    background:var(--biru);
+    color:#fff;
+}
+
+.btn-next:hover{
+    opacity:0.9;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:768px){
+
+    .claim-card{
+        padding:24px 20px;
+    }
+
+    .button-wrapper{
+        flex-direction:column;
+    }
+
+    .line{
+        width:30px;
+    }
+
+}

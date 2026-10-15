@@ -1,0 +1,469 @@
+/* =====================================================
+   HUBUNGI KAMI - VESCA
+   Disamakan dengan halaman Minta Penawaran, Konsultasi
+   Teknis, dan halaman layanan lainnya (#1e3a8a / #020617)
+===================================================== */
+
+.kontak-page {
+    padding: 120px 40px 100px;
+    background: #f8fafc;
+    min-height: 100vh;
+    color: #0f172a;
+}
+
+.kontak-container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* ---------- HERO ---------- */
+
+.kontak-heading {
+    text-align: center;
+    margin: 0 auto 40px;
+}
+
+/* label kecil di atas judul: dibuat tenang, tidak mencolok */
+.kontak-label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: #1e3a8a;
+}
+
+.kontak-heading h1 {
+    margin: 0 0 14px;
+    font-size: 40px;
+    color: #071739;
+}
+
+.kontak-heading p {
+    max-width: 680px;
+    margin: 0 auto;
+    font-size: 17px;
+    line-height: 1.8;
+    color: #64748b;
+}
+
+/* ---------- PETA ---------- */
+
+.kontak-map {
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.kontak-map iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* ---------- KARTU UTAMA ---------- */
+
+.kontak-box {
+    display: grid;
+    grid-template-columns: 340px minmax(0, 1fr);
+    gap: 50px;
+    padding: 40px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.kontak-info h2,
+.kontak-form h2 {
+    margin: 0 0 12px;
+    font-size: 24px;
+    color: #071739;
+}
+
+.kontak-info > p {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #64748b;
+}
+
+/* ---------- INFORMASI KONTAK ---------- */
+
+.kontak-detail {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-top: 24px;
+}
+
+.kontak-icon {
+    flex: 0 0 44px;
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: #eff6ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.kontak-detail h3 {
+    margin: 0 0 4px;
+    font-size: 16px;
+    color: #071739;
+}
+
+.kontak-detail p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #64748b;
+    overflow-wrap: anywhere;
+}
+
+.line {
+    width: 100%;
+    height: 1px;
+    margin: 28px 0;
+    background: #e2e8f0;
+}
+
+.btn-lokasi {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 48px;
+    padding: 0 22px;
+    border: 1px solid #1e3a8a;
+    border-radius: 10px;
+    background: #fff;
+    color: #1e3a8a;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn-lokasi:hover {
+    background: #1e3a8a;
+    color: #fff;
+}
+
+/* ---------- FORM ---------- */
+
+.kontak-form {
+    min-width: 0;
+}
+
+.form-description {
+    margin: 0 0 28px;
+    font-size: 15px;
+    line-height: 1.7;
+    color: #64748b;
+}
+
+.form-group {
+    min-width: 0;
+    margin-bottom: 22px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 9px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #0f172a;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    border: 1px solid #d4d4d8;
+    border-radius: 10px;
+    background: #fff;
+    color: #0f172a;
+    font-family: inherit;
+    font-size: 15px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.form-group input,
+.form-group select {
+    height: 52px;
+    padding: 0 16px;
+}
+
+.form-group textarea {
+    min-height: 130px;
+    padding: 14px 16px;
+    resize: vertical;
+    line-height: 1.6;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #1e3a8a;
+    box-shadow: 0 0 0 4px rgba(30, 58, 138, 0.1);
+}
+
+.form-flex {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 22px;
+}
+
+.kontak-form button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    height: 54px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #020617, #1e3a8a);
+    color: #fff;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.kontak-form button:hover {
+    opacity: 0.9;
+}
+
+/* =====================================================
+   RESPONSIVE
+   Laptop kecil -> Tablet -> HP -> HP kecil -> HP landscape
+===================================================== */
+
+/* ---------- LAPTOP KECIL (<= 1100px) ---------- */
+
+@media (max-width: 1100px) {
+
+    .kontak-page {
+        padding: 110px 32px 80px;
+    }
+
+    .kontak-box {
+        grid-template-columns: 300px minmax(0, 1fr);
+        gap: 36px;
+        padding: 32px;
+    }
+}
+
+/* ---------- TABLET (<= 960px) ---------- */
+
+@media (max-width: 960px) {
+
+    .kontak-page {
+        padding: 100px 28px 70px;
+    }
+
+    .kontak-heading h1 {
+        font-size: 34px;
+    }
+
+    .kontak-heading p {
+        font-size: 16px;
+    }
+
+    .kontak-map {
+        height: 340px;
+    }
+
+    /* info di atas, form di bawah */
+    .kontak-box {
+        grid-template-columns: 1fr;
+        gap: 36px;
+        padding: 32px;
+    }
+
+    /* tiga info kontak berjajar supaya tidak terlalu panjang di tablet */
+    .kontak-info {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0 24px;
+    }
+
+    .kontak-info h2,
+    .kontak-info > p,
+    .kontak-info .line,
+    .kontak-info .btn-lokasi {
+        grid-column: 1 / -1;
+    }
+
+    .kontak-info .btn-lokasi {
+        justify-self: start;
+    }
+
+    /* garis pemisah antara info dan form */
+    .kontak-form {
+        padding-top: 32px;
+        border-top: 1px solid #e2e8f0;
+    }
+}
+
+/* ---------- TABLET KECIL (<= 800px) ---------- */
+
+@media (max-width: 800px) {
+
+    /* di lebar ini tiga kolom info mulai sempit -> tumpuk */
+    .kontak-info {
+        display: block;
+    }
+}
+
+/* ---------- HP (<= 700px) ---------- */
+
+@media (max-width: 700px) {
+
+    .kontak-page {
+        padding: 96px max(16px, env(safe-area-inset-right)) 60px max(16px, env(safe-area-inset-left));
+    }
+
+    .kontak-heading {
+        margin-bottom: 28px;
+    }
+
+    .kontak-heading h1 {
+        font-size: 30px;
+    }
+
+    .kontak-heading p {
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+    .kontak-map {
+        height: 280px;
+        margin-bottom: 22px;
+    }
+
+    .kontak-box {
+        padding: 24px 20px;
+        gap: 28px;
+    }
+
+    .kontak-form {
+        padding-top: 28px;
+    }
+
+    .kontak-info h2,
+    .kontak-form h2 {
+        font-size: 22px;
+    }
+
+    /* nama + email dst. menjadi satu kolom */
+    .form-flex {
+        grid-template-columns: 1fr;
+    }
+
+    /* 16px mencegah iPhone memperbesar layar otomatis saat mengetik */
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        font-size: 16px;
+    }
+
+    .form-group textarea {
+        min-height: 120px;
+    }
+
+    .kontak-form button {
+        height: 56px;
+    }
+
+    .btn-lokasi {
+        width: 100%;
+    }
+}
+
+/* ---------- HP KECIL (<= 420px) ---------- */
+
+@media (max-width: 420px) {
+
+    .kontak-page {
+        padding-top: 90px;
+    }
+
+    .kontak-heading h1 {
+        font-size: 26px;
+    }
+
+    .kontak-map {
+        height: 240px;
+        border-radius: 10px;
+    }
+
+    .kontak-box {
+        padding: 20px 16px;
+        border-radius: 10px;
+    }
+
+    .kontak-icon {
+        flex-basis: 40px;
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+
+    .kontak-detail {
+        gap: 12px;
+    }
+}
+
+/* ---------- HP LANDSCAPE (layar pendek) ---------- */
+
+@media (max-height: 520px) and (orientation: landscape) {
+
+    .kontak-page {
+        padding-top: 84px;
+    }
+
+    .kontak-map {
+        height: 220px;
+    }
+}
+
+/* ---------- PERANGKAT SENTUH ---------- */
+
+@media (hover: none) {
+
+    .kontak-form button:hover {
+        opacity: 1;
+    }
+
+    .btn-lokasi:hover {
+        background: #fff;
+        color: #1e3a8a;
+    }
+}
+
+/* ---------- LAYAR BESAR (>= 1500px) ---------- */
+
+@media (min-width: 1500px) {
+
+    .kontak-container {
+        max-width: 1200px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    * {
+        transition: none !important;
+    }
+}

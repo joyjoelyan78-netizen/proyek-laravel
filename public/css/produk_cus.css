@@ -1,0 +1,427 @@
+
+/* =========================================================
+   VESCA - DETAIL PRODUK
+   Tema: Navy Blue, Royal Blue, dan Light Blue
+========================================================= */
+
+.detail-produk {
+    --dp-navy: #07194d;
+    --dp-blue: #145be7;
+    --dp-blue-dark: #0b3d91;
+    --dp-light: #edf4ff;
+    --dp-text: #344563;
+    --dp-muted: #64748b;
+    --dp-border: #e2eaf6;
+
+    position: relative;
+    isolation: isolate;
+    padding: 65px 24px 85px;
+    background:
+        radial-gradient(
+            ellipse at 5% 5%,
+            rgba(37, 99, 235, 0.07),
+            transparent 35%
+        ),
+        #f4f7fc;
+    color: var(--dp-navy);
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
+.detail-produk *,
+.detail-produk *::before,
+.detail-produk *::after {
+    box-sizing: border-box;
+}
+
+.detail-produk .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ================= LAYOUT UTAMA ================= */
+
+.detail-wrapper {
+    display: grid;
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+    gap: 38px;
+    align-items: start;
+}
+
+/* ================= KARTU GAMBAR ================= */
+
+.detail-gambar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 0;
+    min-height: 420px;
+    padding: 24px;
+
+    background: #fff;
+    border: 1px solid rgba(207, 221, 245, 0.9);
+    border-radius: 18px;
+
+    box-shadow: 0 12px 35px rgba(10, 31, 92, 0.07);
+    overflow: hidden;
+}
+
+.detail-gambar::before {
+    content: "";
+    position: absolute;
+    width: 240px;
+    height: 240px;
+    top: -125px;
+    right: -100px;
+
+    background: rgba(37, 99, 235, 0.08);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.detail-gambar img {
+    position: relative;
+    z-index: 1;
+
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    max-height: 480px;
+    aspect-ratio: 4 / 3;
+
+    object-fit: contain;
+    object-position: center;
+
+    border-radius: 10px;
+    filter: drop-shadow(0 8px 12px rgba(10, 31, 92, 0.06));
+}
+
+/* ================= KARTU INFORMASI ================= */
+
+.detail-info {
+    min-width: 0;
+    padding: 35px 34px;
+
+    background: #fff;
+    border: 1px solid var(--dp-border);
+    border-radius: 18px;
+
+    box-shadow: 0 12px 35px rgba(10, 31, 92, 0.06);
+}
+
+/* ================= KATEGORI ================= */
+
+.detail-info .kategori {
+    display: inline-flex;
+    align-items: center;
+
+    margin: 0 0 17px;
+    padding: 8px 15px;
+
+    background: var(--dp-light);
+    border: 1px solid #d5e4ff;
+    border-radius: 50px;
+
+    color: var(--dp-blue-dark);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.7px;
+    text-transform: uppercase;
+
+    overflow-wrap: anywhere;
+}
+
+/* ================= JUDUL PRODUK ================= */
+
+.detail-info h1 {
+    margin: 0 0 18px;
+    padding-bottom: 19px;
+
+    position: relative;
+
+    color: var(--dp-navy);
+    font-size: clamp(27px, 3vw, 39px);
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.8px;
+
+    overflow-wrap: anywhere;
+}
+
+.detail-info h1::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    width: 65px;
+    height: 4px;
+
+    background: linear-gradient(
+        90deg,
+        var(--dp-blue),
+        #60a5fa
+    );
+
+    border-radius: 10px;
+}
+
+/* ================= DESKRIPSI ================= */
+
+.detail-info > p {
+    margin: 0 0 25px;
+
+    color: var(--dp-text);
+    font-size: 14px;
+    line-height: 1.9;
+    font-weight: 400;
+
+    overflow-wrap: anywhere;
+}
+
+/* ================= SPESIFIKASI ================= */
+
+.detail-info .spesifikasi {
+    width: 100%;
+    margin: 0 0 28px;
+
+    border-collapse: separate;
+    border-spacing: 0;
+
+    background: #f8faff;
+    border: 1px solid var(--dp-border);
+    border-radius: 12px;
+
+    overflow: hidden;
+}
+
+.detail-info .spesifikasi tr {
+    transition: background 0.2s ease;
+}
+
+.detail-info .spesifikasi tr:hover {
+    background: #edf4ff;
+}
+
+.detail-info .spesifikasi tr:not(:last-child) td {
+    border-bottom: 1px solid var(--dp-border);
+}
+
+.detail-info .spesifikasi td {
+    padding: 15px 17px;
+
+    border-bottom: none;
+
+    font-size: 13px;
+    line-height: 1.6;
+    vertical-align: top;
+
+    overflow-wrap: anywhere;
+    word-break: normal;
+}
+
+.detail-info .spesifikasi td:first-child {
+    width: 43%;
+
+    color: var(--dp-muted);
+    font-weight: 600;
+}
+
+.detail-info .spesifikasi td:last-child {
+    color: var(--dp-navy);
+    font-weight: 700;
+}
+
+/* ================= TOMBOL HUBUNGI KAMI ================= */
+
+.detail-info .btn-wa {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    min-height: 50px;
+    padding: 14px 24px;
+
+    background: linear-gradient(
+        110deg,
+        var(--dp-blue-dark),
+        var(--dp-blue)
+    );
+
+    border: 1px solid transparent;
+    border-radius: 9px;
+
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.4;
+    text-align: center;
+    text-decoration: none;
+
+    box-shadow: 0 7px 18px rgba(20, 91, 231, 0.2);
+
+    transition:
+        background 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.25s ease;
+}
+
+.detail-info .btn-wa:hover {
+    background: linear-gradient(
+        110deg,
+        #082e70,
+        #104ac5
+    );
+
+    box-shadow: 0 10px 24px rgba(20, 91, 231, 0.3);
+    transform: translateY(-2px);
+}
+
+.detail-info .btn-wa:focus-visible {
+    outline: 3px solid #93c5fd;
+    outline-offset: 4px;
+}
+
+/* ================= RESPONSIVE TABLET ================= */
+
+@media (max-width: 1000px) {
+    .detail-produk {
+        padding: 45px 24px 65px;
+    }
+
+    .detail-wrapper {
+        grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+        gap: 24px;
+    }
+
+    .detail-gambar {
+        min-height: 340px;
+        padding: 18px;
+    }
+
+    .detail-gambar img {
+        max-height: 380px;
+    }
+
+    .detail-info {
+        padding: 27px 24px;
+    }
+
+    .detail-info h1 {
+        font-size: 30px;
+    }
+
+    .detail-info > p {
+        font-size: 13px;
+        line-height: 1.8;
+    }
+
+    .detail-info .spesifikasi td {
+        padding: 12px;
+        font-size: 12px;
+    }
+}
+
+/* ================= RESPONSIVE HP ================= */
+
+@media (max-width: 700px) {
+    .detail-produk {
+        padding: 28px 16px 50px;
+    }
+
+    .detail-wrapper {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 20px;
+    }
+
+    .detail-gambar {
+        min-height: 0;
+        padding: 15px;
+        border-radius: 14px;
+    }
+
+    .detail-gambar img {
+        width: 100%;
+        max-height: 340px;
+        aspect-ratio: 4 / 3;
+    }
+
+    .detail-info {
+        padding: 24px 20px;
+        border-radius: 14px;
+    }
+
+    .detail-info .kategori {
+        margin-bottom: 14px;
+        padding: 7px 12px;
+        font-size: 11px;
+    }
+
+    .detail-info h1 {
+        margin-bottom: 16px;
+        padding-bottom: 16px;
+        font-size: clamp(25px, 6vw, 32px);
+        letter-spacing: -0.4px;
+    }
+
+    .detail-info > p {
+        margin-bottom: 22px;
+        font-size: 13px;
+        line-height: 1.8;
+    }
+
+    .detail-info .spesifikasi {
+        margin-bottom: 23px;
+        border-radius: 10px;
+    }
+
+    .detail-info .spesifikasi td {
+        padding: 12px 10px;
+        font-size: 12px;
+    }
+
+    .detail-info .spesifikasi td:first-child {
+        width: 42%;
+    }
+
+    .detail-info .btn-wa {
+        width: 100%;
+        min-height: 48px;
+        padding: 13px 18px;
+        font-size: 13px;
+    }
+}
+
+/* ================= HP KECIL ================= */
+
+@media (max-width: 380px) {
+    .detail-produk {
+        padding: 22px 12px 40px;
+    }
+
+    .detail-info {
+        padding: 20px 15px;
+    }
+
+    .detail-info h1 {
+        font-size: 25px;
+    }
+
+    .detail-info .spesifikasi td {
+        padding: 10px 8px;
+        font-size: 11px;
+    }
+}
+
+/* ================= AKSESIBILITAS ================= */
+
+@media (prefers-reduced-motion: reduce) {
+    .detail-info .btn-wa,
+    .detail-info .spesifikasi tr {
+        transition: none;
+    }
+}

@@ -1,0 +1,867 @@
+/* =====================================================
+   LAYANAN: MINTA PENAWARAN RESMI & KONSULTASI TEKNIS
+   Warna mengikuti halaman Hubungi Kami (#1e3a8a / #020617)
+===================================================== */
+
+.lf-page {
+    padding: 120px 40px 100px;
+    background: #f8fafc;
+    min-height: 100vh;
+}
+
+.lf-container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* ---------- HERO ---------- */
+
+.lf-hero {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.lf-hero h1 {
+    font-size: 40px;
+    color: #071739;
+    margin-bottom: 14px;
+}
+
+.lf-hero p {
+    max-width: 680px;
+    margin: 0 auto;
+    font-size: 17px;
+    line-height: 1.8;
+    color: #64748b;
+}
+
+/* ---------- LAYOUT: FORM + SIDEBAR ---------- */
+
+.lf-layout {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 30px;
+    align-items: start;
+}
+
+.lf-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.lf-side {
+    background: #fff;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    position: sticky;
+    top: 110px;
+}
+
+.lf-side h3 {
+    font-size: 20px;
+    color: #071739;
+    margin-bottom: 20px;
+}
+
+/* ---------- LANGKAH (SIDEBAR) ---------- */
+
+.lf-steps {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 22px;
+}
+
+.lf-steps li {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 18px;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #475569;
+}
+
+.lf-steps .lf-num {
+    flex: 0 0 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: linear-gradient(90deg, #020617, #1e3a8a);
+    color: #fff;
+    font-weight: 700;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lf-side .lf-note {
+    font-size: 13px;
+    line-height: 1.7;
+    color: #64748b;
+    border-top: 1px solid #e2e8f0;
+    padding-top: 16px;
+}
+
+/* ---------- JUDUL BAGIAN FORM ---------- */
+
+.lf-section-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #071739;
+    margin: 36px 0 22px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.lf-section-title:first-of-type {
+    margin-top: 0;
+}
+
+.lf-section-title i {
+    color: #1e3a8a;
+}
+
+/* ---------- FIELD ---------- */
+
+.lf-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 22px;
+}
+
+.lf-field {
+    margin-bottom: 22px;
+}
+
+.lf-field label {
+    display: block;
+    margin-bottom: 9px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #0f172a;
+}
+
+.lf-req {
+    color: #dc2626;
+}
+
+.lf-field input[type="text"],
+.lf-field input[type="email"],
+.lf-field input[type="tel"],
+.lf-field input[type="number"],
+.lf-field input[type="date"],
+.lf-field input[type="file"],
+.lf-field select,
+.lf-field textarea {
+    width: 100%;
+    height: 52px;
+    border: 1px solid #d4d4d8;
+    border-radius: 10px;
+    padding: 0 16px;
+    outline: none;
+    font-size: 15px;
+    font-family: inherit;
+    background: #fff;
+    transition: 0.3s;
+}
+
+.lf-field input[type="file"] {
+    padding: 12px 16px;
+    height: auto;
+}
+
+.lf-field textarea {
+    height: auto;
+    padding-top: 14px;
+    resize: vertical;
+    line-height: 1.6;
+}
+
+.lf-field input:focus,
+.lf-field select:focus,
+.lf-field textarea:focus {
+    border-color: #1e3a8a;
+    box-shadow: 0 0 0 4px rgba(30, 58, 138, 0.1);
+}
+
+.lf-field.has-error input,
+.lf-field.has-error select,
+.lf-field.has-error textarea {
+    border-color: #dc2626;
+}
+
+.lf-hint {
+    display: block;
+    margin-top: 7px;
+    font-size: 13px;
+    color: #64748b;
+    line-height: 1.5;
+}
+
+.lf-error {
+    display: block;
+    margin-top: 7px;
+    font-size: 13px;
+    color: #dc2626;
+}
+
+/* jumlah + satuan */
+.lf-qty {
+    display: flex;
+    gap: 12px;
+}
+
+.lf-qty input {
+    flex: 1;
+}
+
+.lf-qty select {
+    width: 110px;
+}
+
+/* ---------- ALERT ---------- */
+
+.lf-alert {
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin-bottom: 26px;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.lf-alert-error {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.lf-alert ul {
+    margin: 6px 0 0 18px;
+    padding: 0;
+}
+
+/* ---------- TOMBOL ---------- */
+
+.lf-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    height: 54px;
+    padding: 0 30px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #020617, #1e3a8a);
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: inherit;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.lf-btn:hover {
+    opacity: 0.9;
+}
+
+.lf-btn-block {
+    width: 100%;
+}
+
+.lf-btn-outline {
+    background: #fff;
+    color: #1e3a8a;
+    border: 1px solid #1e3a8a;
+}
+
+.lf-btn-wa {
+    background: #16a34a;
+}
+
+/* ---------- HALAMAN SUKSES ---------- */
+
+.lf-sukses {
+    max-width: 620px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 12px;
+    padding: 50px 40px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.lf-sukses-icon {
+    width: 84px;
+    height: 84px;
+    margin: 0 auto 24px;
+    border-radius: 50%;
+    background: #dcfce7;
+    color: #16a34a;
+    font-size: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lf-sukses h1 {
+    font-size: 30px;
+    color: #071739;
+    margin-bottom: 12px;
+}
+
+.lf-sukses p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #64748b;
+}
+
+.lf-nomor {
+    margin: 26px auto;
+    padding: 18px 20px;
+    background: #f1f5f9;
+    border: 1px dashed #94a3b8;
+    border-radius: 10px;
+}
+
+.lf-nomor span {
+    display: block;
+    font-size: 13px;
+    color: #64748b;
+    margin-bottom: 6px;
+}
+
+.lf-nomor strong {
+    font-size: 26px;
+    letter-spacing: 1px;
+    color: #1e3a8a;
+}
+
+.lf-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 28px;
+}
+
+/* ---------- KONSULTASI: NAV CEPAT ---------- */
+
+.lf-quicknav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 44px;
+}
+
+.lf-quicknav a {
+    padding: 10px 22px;
+    border-radius: 999px;
+    background: #fff;
+    border: 1px solid #d4d4d8;
+    color: #1e3a8a;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.lf-quicknav a:hover {
+    background: #1e3a8a;
+    color: #fff;
+    border-color: #1e3a8a;
+}
+
+/* ---------- KONSULTASI: BLOK INFORMASI ---------- */
+
+.lf-block {
+    background: #fff;
+    border-radius: 12px;
+    padding: 36px 40px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    scroll-margin-top: 110px;
+}
+
+.lf-block > h2 {
+    font-size: 24px;
+    color: #071739;
+    margin-bottom: 8px;
+}
+
+.lf-block > .lf-lead {
+    font-size: 15px;
+    color: #64748b;
+    line-height: 1.7;
+    margin-bottom: 26px;
+}
+
+.lf-compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.lf-compare-card {
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 24px;
+}
+
+.lf-compare-card h3 {
+    font-size: 18px;
+    color: #1e3a8a;
+    margin-bottom: 12px;
+}
+
+.lf-compare-card ul {
+    margin: 0;
+    padding-left: 20px;
+    font-size: 15px;
+    line-height: 1.8;
+    color: #475569;
+}
+
+.lf-disclaimer {
+    margin-top: 20px;
+    padding: 14px 18px;
+    background: #eff6ff;
+    border-radius: 10px;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #1e3a8a;
+}
+
+/* ---------- KONSULTASI: TABEL SPESIFIKASI ---------- */
+
+.lf-kategori-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: #071739;
+    margin: 28px 0 12px;
+}
+
+.lf-kategori-title:first-of-type {
+    margin-top: 0;
+}
+
+.lf-table-wrap {
+    overflow-x: auto;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+}
+
+.lf-table {
+    width: 100%;
+    min-width: 760px;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.lf-table th {
+    background: #f1f5f9;
+    color: #0f172a;
+    text-align: left;
+    padding: 12px 14px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.lf-table td {
+    padding: 12px 14px;
+    border-top: 1px solid #e2e8f0;
+    color: #475569;
+    vertical-align: top;
+    line-height: 1.6;
+}
+
+.lf-table td a {
+    color: #1e3a8a;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.lf-empty {
+    padding: 24px;
+    text-align: center;
+    color: #64748b;
+    font-size: 15px;
+}
+
+/* ---------- KONSULTASI: FAQ ---------- */
+
+.lf-faq details {
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    background: #fff;
+}
+
+.lf-faq summary {
+    cursor: pointer;
+    padding: 16px 20px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #0f172a;
+    list-style: none;
+}
+
+.lf-faq summary::-webkit-details-marker {
+    display: none;
+}
+
+.lf-faq summary::after {
+    content: "+";
+    float: right;
+    color: #1e3a8a;
+    font-size: 20px;
+    line-height: 1;
+}
+
+.lf-faq details[open] summary::after {
+    content: "\2212";
+}
+
+.lf-faq details p {
+    padding: 0 20px 18px;
+    font-size: 15px;
+    line-height: 1.8;
+    color: #64748b;
+    margin: 0;
+}
+
+.lf-faq details a {
+    color: #1e3a8a;
+    font-weight: 600;
+}
+
+/* ---------- JEBAKAN BOT (jangan dihapus) ---------- */
+
+.lf-hp {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+/* ---------- RESPONSIVE ---------- */
+
+@media (max-width: 960px) {
+
+    .lf-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .lf-side {
+        position: static;
+    }
+}
+
+@media (max-width: 700px) {
+
+    .lf-page {
+        padding: 100px 16px 70px;
+    }
+
+    .lf-hero h1 {
+        font-size: 30px;
+    }
+
+    .lf-card,
+    .lf-block {
+        padding: 24px 20px;
+    }
+
+    .lf-grid-2,
+    .lf-compare {
+        grid-template-columns: 1fr;
+    }
+
+    .lf-sukses {
+        padding: 36px 22px;
+    }
+
+    .lf-btn {
+        width: 100%;
+    }
+}
+
+/* =====================================================
+   TAMBAHAN: PEMILIH ITEM KATALOG (FORM PENAWARAN)
+===================================================== */
+
+.lf-item {
+    display: grid;
+    grid-template-columns: 1.3fr 1.2fr 130px 44px;
+    gap: 12px;
+    align-items: start;
+    padding: 16px;
+    margin-bottom: 14px;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    background: #f8fafc;
+}
+
+.lf-item select,
+.lf-item input[type="text"],
+.lf-item input[type="number"] {
+    width: 100%;
+    height: 48px;
+    border: 1px solid #d4d4d8;
+    border-radius: 10px;
+    padding: 0 12px;
+    outline: none;
+    font-size: 14px;
+    font-family: inherit;
+    background: #fff;
+}
+
+.lf-item select:focus,
+.lf-item input:focus {
+    border-color: #1e3a8a;
+    box-shadow: 0 0 0 4px rgba(30, 58, 138, 0.1);
+}
+
+.lf-item-info {
+    grid-column: 1 / -1;
+    font-size: 13px;
+    color: #475569;
+    line-height: 1.5;
+    min-height: 0;
+}
+
+.lf-item-info:empty {
+    display: none;
+}
+
+.lf-item-hapus {
+    width: 44px;
+    height: 48px;
+    border: none;
+    border-radius: 10px;
+    background: #fee2e2;
+    color: #b91c1c;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.lf-btn-small {
+    height: 44px;
+    padding: 0 20px;
+    font-size: 14px;
+}
+
+/* =====================================================
+   TAMBAHAN: HALAMAN KONSULTASI (DATA KATALOG)
+===================================================== */
+
+.lf-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 22px;
+}
+
+.lf-tab {
+    padding: 11px 24px;
+    border: 1px solid #d4d4d8;
+    border-radius: 999px;
+    background: #fff;
+    color: #1e3a8a;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.lf-tab.active {
+    background: linear-gradient(90deg, #020617, #1e3a8a);
+    border-color: #1e3a8a;
+    color: #fff;
+}
+
+.lf-panel {
+    display: none;
+}
+
+.lf-panel.active {
+    display: block;
+}
+
+.lf-bahan-ringkasan {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #475569;
+    margin-bottom: 22px;
+}
+
+.lf-seri-desc {
+    font-size: 14px;
+    color: #64748b;
+    margin: -4px 0 12px;
+}
+
+.lf-table .lf-kode {
+    font-weight: 700;
+    color: #071739;
+    white-space: nowrap;
+}
+
+.lf-table .lf-aksi a {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 8px;
+    background: #eff6ff;
+    color: #1e3a8a;
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.lf-table .lf-aksi a:hover {
+    background: #1e3a8a;
+    color: #fff;
+}
+
+.lf-table-wrap + .lf-kategori-title {
+    margin-top: 34px;
+}
+
+/* tabel perbandingan performa */
+.lf-table.lf-banding {
+    min-width: 560px;
+}
+
+.lf-table.lf-banding td:first-child {
+    font-weight: 600;
+    color: #0f172a;
+}
+
+.lf-baca {
+    margin-top: 16px;
+    font-size: 14px;
+    line-height: 1.8;
+    color: #64748b;
+}
+
+.lf-baca strong {
+    color: #0f172a;
+}
+
+/* komposisi material */
+.lf-komposisi {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 6px;
+}
+
+.lf-komposisi .lf-table {
+    min-width: 0;
+}
+
+.lf-komposisi h3 {
+    font-size: 16px;
+    color: #1e3a8a;
+    margin-bottom: 10px;
+}
+
+/* kartu sertifikat */
+.lf-sertifikat {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.lf-sert-card {
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 22px;
+    background: #fff;
+}
+
+.lf-sert-card .lf-sert-lembaga {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: #64748b;
+    margin-bottom: 6px;
+}
+
+.lf-sert-card h3 {
+    font-size: 17px;
+    color: #071739;
+    margin-bottom: 14px;
+}
+
+.lf-sert-card dl {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.lf-sert-card dt {
+    color: #94a3b8;
+    margin-top: 8px;
+}
+
+.lf-sert-card dd {
+    margin: 0;
+    color: #334155;
+    font-weight: 600;
+    word-break: break-word;
+}
+
+.lf-kontak-cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    margin-top: 22px;
+    padding: 16px 20px;
+    background: #f1f5f9;
+    border-radius: 10px;
+    font-size: 14px;
+    color: #334155;
+}
+
+.lf-kontak-cta a {
+    color: #1e3a8a;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+@media (max-width: 960px) {
+
+    .lf-sertifikat {
+        grid-template-columns: 1fr;
+    }
+
+    .lf-komposisi {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 700px) {
+
+    .lf-item {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .lf-item .lf-item-col:first-child,
+    .lf-item .lf-item-col:nth-child(2) {
+        grid-column: 1 / -1;
+    }
+
+    .lf-item-hapus {
+        width: 100%;
+    }
+}

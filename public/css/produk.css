@@ -1,0 +1,669 @@
+/* =========================================================
+   HALAMAN PRODUK (PUBLIK)  -  public/css/produk_cus.css
+   Semua class memakai awalan "pk-" supaya tidak bentrok
+   dengan CSS navbar/footer atau halaman lain.
+========================================================= */
+
+.pk-page {
+    background: #f4f7fc;
+    color: #0b1533;
+}
+
+.pk-wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+/* ================= TOMBOL OUTLINE ================= */
+
+.pk-btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+
+    padding: 14px 26px;
+
+    border: 1.5px solid #fff;
+    border-radius: 8px;
+
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+
+    transition: background .25s, color .25s;
+}
+
+.pk-btn-outline:hover {
+    background: #fff;
+    color: #0a1f5c;
+}
+
+/* ================= HERO ================= */
+
+.pk-hero {
+    min-height: 480px;
+    display: flex;
+    align-items: center;
+
+    background-color: #0a1f5c;
+    background-image:
+        linear-gradient(90deg,
+            #0a1f5c 0%,
+            rgba(10, 31, 92, .94) 38%,
+            rgba(10, 31, 92, 0) 75%),
+        var(--hero-img, none);
+    background-size: cover;
+    background-position: center right;
+    background-repeat: no-repeat;
+}
+
+.pk-hero .pk-wrap {
+    width: 100%;
+}
+
+.pk-hero__content {
+    max-width: 620px;
+    padding: 60px 0;
+}
+
+.pk-hero h1 {
+    margin: 0 0 24px;
+    font-size: clamp(34px, 5vw, 54px);
+    font-weight: 800;
+    line-height: 1.15;
+    color: #fff;
+}
+
+.pk-hero h1 span {
+    color: #2f6bff;
+}
+
+.pk-hero p {
+    margin: 0 0 40px;
+    max-width: 500px;
+    font-size: 18px;
+    line-height: 1.55;
+    color: #fff;
+}
+
+/* ================= SECTION ================= */
+
+.pk-section {
+    padding: 56px 0 0;
+}
+
+.pk-label {
+    margin: 0 0 10px;
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: .02em;
+    text-transform: uppercase;
+    color: #1a56f0;
+}
+
+.pk-title {
+    margin: 0 0 30px;
+    font-size: clamp(24px, 3vw, 34px);
+    font-weight: 800;
+    line-height: 1.25;
+    color: #0a1f5c;
+}
+
+/* ================= TAB KATEGORI ================= */
+
+.pk-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    margin-bottom: 36px;
+}
+
+.pk-tab {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+
+    min-height: 46px;
+    padding: 0 22px;
+
+    background: #fff;
+    border: 1.5px solid transparent;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(10, 31, 92, .06);
+
+    font-size: 15px;
+    font-weight: 500;
+    color: #0a1f5c;
+    text-decoration: none;
+
+    transition: transform .2s, border-color .2s, color .2s;
+}
+
+.pk-tab i {
+    font-size: 20px;
+    color: #1a56f0;
+}
+
+.pk-tab:hover {
+    transform: translateY(-2px);
+    border-color: #b9ccf7;
+}
+
+.pk-tab.is-active {
+    border-color: #1a56f0;
+    color: #1a56f0;
+    font-weight: 700;
+}
+
+.pk-result {
+    margin: 0 0 22px;
+    font-size: 15px;
+    color: #55607f;
+}
+
+/* ================= GRID PRODUK ================= */
+
+.pk-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+}
+
+.pk-card {
+    display: flex;
+    flex-direction: column;
+
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 18px rgba(10, 31, 92, .07);
+
+    color: inherit;
+    text-decoration: none;
+
+    transition: transform .25s, box-shadow .25s;
+}
+
+.pk-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 30px rgba(10, 31, 92, .14);
+}
+
+.pk-card__img {
+    height: 170px;
+    background: #0b1533;
+    overflow: hidden;
+}
+
+.pk-card__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.pk-card__noimg {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    color: #55607f;
+}
+
+.pk-card__body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 18px 18px 20px;
+}
+
+.pk-card__body h3 {
+    margin: 0 0 8px;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.25;
+    color: #0a1f5c;
+}
+
+.pk-card__body p {
+    margin: 0 0 16px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #55607f;
+}
+
+.pk-card__more {
+    margin-top: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    font-size: 13px;
+    font-weight: 700;
+    color: #3b82f6;
+}
+
+.pk-card:hover .pk-card__more i {
+    transform: translateX(4px);
+}
+
+.pk-card__more i {
+    transition: transform .2s;
+}
+
+.pk-empty {
+    grid-column: 1 / -1;
+    padding: 40px 0;
+    text-align: center;
+    color: #55607f;
+}
+
+/* ================= KEUNGGULAN ================= */
+
+.pk-features {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+
+    margin: 72px 0 56px;
+    padding: 26px 36px;
+
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(10, 31, 92, .05);
+}
+
+.pk-feature {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.pk-feature i {
+    font-size: 32px;
+    color: #0a1f5c;
+}
+
+.pk-feature strong {
+    display: block;
+    font-size: 14px;
+    color: #0b1533;
+}
+
+.pk-feature span {
+    font-size: 12px;
+    color: #55607f;
+}
+
+/* ================= CTA ================= */
+
+.pk-cta {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+
+    margin-bottom: 80px;
+    padding: 34px 44px;
+
+    background: linear-gradient(120deg, #0a2a6e, #0d3a8f);
+    border-radius: 8px;
+    color: #fff;
+}
+
+.pk-cta__icon {
+    font-size: 52px;
+}
+
+.pk-cta__text {
+    flex: 1;
+}
+
+.pk-cta__text h3 {
+    margin: 0 0 6px;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.pk-cta__text p {
+    margin: 0;
+    font-size: 13px;
+    color: #d5def5;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1100px) {
+    .pk-grid { grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .pk-features { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 800px) {
+    .pk-wrap { padding: 0 20px; }
+    .pk-grid { grid-template-columns: repeat(2, 1fr); gap: 18px; }
+
+    .pk-hero { min-height: 400px; }
+    .pk-hero__content { padding: 48px 0; }
+    .pk-hero p { font-size: 16px; }
+
+    /* tab bisa digeser ke samping */
+    .pk-tabs {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding-bottom: 8px;
+        gap: 12px;
+    }
+    .pk-tab { flex-shrink: 0; }
+
+    .pk-cta {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 24px;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 520px) {
+    .pk-grid { grid-template-columns: 1fr; }
+    .pk-features { grid-template-columns: 1fr; padding: 22px; }
+    .pk-label { font-size: 18px; }
+}
+/* ==========================
+   CHATBOT
+========================== */
+
+#chatbot-toggle{
+    position:fixed;
+    right:25px;
+    bottom:25px;
+
+    width:65px;
+    height:65px;
+
+    border-radius:50%;
+    background:#0d6efd;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    color:white;
+    font-size:28px;
+
+    cursor:pointer;
+
+    z-index:9999;
+
+    box-shadow:
+    0 0 20px rgba(13,110,253,.5);
+
+    transition:.3s;
+}
+
+#chatbot-toggle:hover{
+    transform:scale(1.1);
+}
+
+#chatbot-box{
+
+    position:fixed;
+
+    right:25px;
+    bottom:100px;
+
+    width:380px;
+    height:550px;
+
+    background:white;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    display:none;
+    flex-direction:column;
+
+    z-index:9999;
+
+    box-shadow:
+    0 10px 35px rgba(0,0,0,.25);
+
+    animation:chatShow .3s ease;
+}
+
+@keyframes chatShow{
+
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.chat-header{
+
+    background:#0d6efd;
+    color:white;
+
+    padding:18px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    font-weight:600;
+}
+
+.chat-title{
+    display:flex;
+    gap:10px;
+    align-items:center;
+}
+
+#close-chat{
+    cursor:pointer;
+}
+
+#chat-messages{
+
+    flex:1;
+
+    padding:15px;
+
+    overflow-y:auto;
+
+    background:#f5f7fb;
+}
+
+.user-message{
+
+    background:#0d6efd;
+    color:white;
+
+    padding:10px 15px;
+
+    border-radius:15px 15px 0 15px;
+
+    margin-bottom:12px;
+
+    max-width:80%;
+
+    margin-left:auto;
+}
+
+.bot-message{
+
+    background:white;
+
+    padding:10px 15px;
+
+    border-radius:15px 15px 15px 0;
+
+    margin-bottom:12px;
+
+    max-width:80%;
+
+    box-shadow:
+    0 2px 8px rgba(0,0,0,.08);
+}
+
+.chat-input{
+
+    display:flex;
+
+    border-top:1px solid #eee;
+}
+
+.chat-input input{
+
+    flex:1;
+
+    border:none;
+
+    padding:15px;
+
+    outline:none;
+}
+
+.chat-input button{
+
+    width:60px;
+
+    border:none;
+
+    background:#0d6efd;
+
+    color:white;
+
+    cursor:pointer;
+}
+
+.chat-input button:hover{
+    background:#0b5ed7;
+}
+
+/* loading animation */
+
+.typing{
+
+    background:white;
+
+    width:70px;
+
+    padding:12px;
+
+    border-radius:15px;
+
+    display:flex;
+    gap:5px;
+}
+
+.typing span{
+
+    width:8px;
+    height:8px;
+
+    background:#999;
+
+    border-radius:50%;
+
+    animation:typing 1s infinite;
+}
+
+.typing span:nth-child(2){
+    animation-delay:.2s;
+}
+
+.typing span:nth-child(3){
+    animation-delay:.4s;
+}
+
+@keyframes typing{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-5px);
+    }
+}
+
+#chatbot-box{
+
+    position:fixed;
+    right:25px;
+    bottom:100px;
+
+    width:380px;
+    height:550px;
+
+    background:white;
+    border-radius:20px;
+
+    overflow:hidden;
+
+    display:flex;
+    flex-direction:column;
+
+    z-index:9999;
+
+    box-shadow:
+    0 10px 35px rgba(0,0,0,.25);
+
+    opacity:0;
+    visibility:hidden;
+
+    transform:translateY(30px) scale(.95);
+
+    transition:
+    opacity .3s ease,
+    transform .3s ease,
+    visibility .3s ease;
+}
+
+/* Saat dibuka */
+#chatbot-box.show{
+
+    opacity:1;
+    visibility:visible;
+
+    transform:
+    translateY(0)
+    scale(1);
+}
+
+#chatbot-toggle{
+
+    animation:
+    pulse 2s infinite;
+}
+
+@keyframes pulse{
+
+    0%{
+        box-shadow:
+        0 0 0 0
+        rgba(13,110,253,.7);
+    }
+
+    70%{
+        box-shadow:
+        0 0 0 18px
+        rgba(13,110,253,0);
+    }
+
+    100%{
+        box-shadow:
+        0 0 0 0
+        rgba(13,110,253,0);
+    }
+}

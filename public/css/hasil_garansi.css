@@ -1,0 +1,452 @@
+/* ============================================================
+   HASIL GARANSI CSS
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Syne:wght@700;800&display=swap');
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --hijau:        #4a5e2a;
+    --hijau-muda:   #6b7f3e;
+    --hijau-bg:     #f0f4e8;
+    --biru-tua:     #1e2b4a;
+    --merah:        #c0392b;
+    --merah-bg:     #fdf0ee;
+    --orange:       #d97706;
+    --orange-bg:    #fef3c7;
+    --abu:          #6b7280;
+    --abu-muda:     #f3f4f6;
+    --border:       #e5e7eb;
+    --putih:        #ffffff;
+    --teks:         #1f2937;
+    --radius:       14px;
+    --shadow:       0 4px 24px rgba(0,0,0,0.08);
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #f8f9f5;
+    color: var(--teks);
+    min-height: 100vh;
+    padding: 40px 16px 80px;
+}
+
+/* ============================================================
+   STEP INDICATOR
+   ============================================================ */
+
+.step-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    margin-bottom: 36px;
+}
+
+.step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+
+.step .circle {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #d1d5db;
+    color: #9ca3af;
+    font-weight: 700;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+}
+
+.step span {
+    font-size: 11px;
+    color: #9ca3af;
+    font-weight: 500;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.step.done .circle {
+    background: var(--hijau);
+    color: var(--putih);
+}
+
+.step.done span {
+    color: var(--hijau);
+}
+
+.step.active .circle {
+    background: var(--biru-tua);
+    color: var(--putih);
+    box-shadow: 0 0 0 4px rgba(30, 43, 74, 0.15);
+}
+
+.step.active span {
+    color: var(--biru-tua);
+    font-weight: 700;
+}
+
+/* STEP DITOLAK */
+
+.step.rejected .circle{
+    background: var(--merah);
+    color: var(--putih);
+    box-shadow: 0 0 0 4px rgba(192, 57, 43, 0.15);
+}
+
+.step.rejected span{
+    color: var(--merah);
+    font-weight: 700;
+}
+
+.line {
+    width: 60px;
+    height: 2px;
+    background: #d1d5db;
+    margin-bottom: 18px;
+}
+
+.line.active {
+    background: var(--hijau);
+}
+
+/* ============================================================
+   CARD UTAMA
+   ============================================================ */
+
+.hasil-wrapper {
+    max-width: 680px;
+    margin: 0 auto;
+}
+
+.hasil-card {
+    background: var(--putih);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    border: 1px solid var(--border);
+}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+
+.hasil-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 28px 16px;
+    border-bottom: 1px solid var(--border);
+}
+
+.hasil-header h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--teks);
+}
+
+.badge-kode {
+    background: #e0f2fe;
+    color: #0369a1;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+}
+
+/* ============================================================
+   STATUS ALERT
+   ============================================================ */
+
+.status-alert {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 28px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.status-berhasil {
+    background: var(--hijau-bg);
+    color: var(--hijau);
+    border-bottom: 1px solid #d4e6b0;
+}
+
+.status-gagal {
+    background: var(--merah-bg);
+    color: var(--merah);
+    border-bottom: 1px solid #f5c6c2;
+}
+
+.status-pending {
+    background: var(--orange-bg);
+    color: var(--orange);
+    border-bottom: 1px solid #fde68a;
+}
+
+.status-alert i {
+    font-size: 16px;
+}
+
+/* ============================================================
+   HERO CARD
+   ============================================================ */
+
+.hero-card {
+    margin: 24px 28px;
+    border-radius: 12px;
+    padding: 32px 24px;
+    text-align: center;
+    border: 1px solid transparent;
+}
+
+.hero-berhasil {
+    background: #f6f8f2;
+    border-color: #d4e6b0;
+}
+
+.hero-gagal {
+    background: var(--merah-bg);
+    border-color: #f5c6c2;
+}
+
+.hero-pending {
+    background: var(--orange-bg);
+    border-color: #fde68a;
+}
+
+.hero-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    margin: 0 auto 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+}
+
+.hero-berhasil .hero-icon {
+    background: var(--hijau);
+    color: var(--putih);
+}
+
+.hero-gagal .hero-icon {
+    background: var(--merah);
+    color: var(--putih);
+}
+
+.hero-pending .hero-icon {
+    background: var(--orange);
+    color: var(--putih);
+}
+
+.hero-card h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+
+.hero-berhasil h3 { color: var(--hijau); }
+.hero-gagal h3    { color: var(--merah); }
+.hero-pending h3  { color: var(--orange); }
+
+.hero-card p {
+    font-size: 13px;
+    color: var(--abu);
+    line-height: 1.6;
+}
+
+.hero-card .berlaku {
+    margin-top: 6px;
+    font-weight: 600;
+    color: var(--hijau);
+    font-size: 13px;
+}
+
+/* ============================================================
+   INFO TABLE
+   ============================================================ */
+
+.info-table {
+    padding: 0 28px;
+    border-top: 1px solid var(--border);
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+    gap: 16px;
+}
+
+.info-row:last-child {
+    border-bottom: none;
+}
+
+.info-row span {
+    font-size: 13px;
+    color: var(--abu);
+    min-width: 140px;
+}
+
+.info-row strong {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--teks);
+    text-align: right;
+}
+
+.text-aktif  { color: var(--hijau)  !important; }
+.text-gagal  { color: var(--merah)  !important; }
+.text-pending { color: var(--orange) !important; }
+
+/* ============================================================
+   CAKUPAN GARANSI
+   ============================================================ */
+
+.cakupan-box {
+    margin: 20px 28px;
+    background: var(--abu-muda);
+    border-radius: 10px;
+    padding: 20px;
+    border: 1px solid var(--border);
+}
+
+.cakupan-box h4 {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--teks);
+    margin-bottom: 14px;
+    letter-spacing: 0.3px;
+}
+
+.cakupan-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--teks);
+}
+
+.cakupan-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.cakupan-item .nomor {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--putih);
+    border: 1px solid var(--border);
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--hijau);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+/* ============================================================
+   BUTTON
+   ============================================================ */
+
+.button-wrapper {
+    padding: 20px 28px 28px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn-klaim {
+    background: var(--biru-tua);
+    color: var(--putih);
+    border: none;
+    padding: 12px 28px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s;
+    display: inline-block;
+}
+
+.btn-klaim:hover {
+    background: #2d3f6b;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 24px 12px 60px;
+    }
+
+    .hasil-header {
+        padding: 16px 20px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .status-alert {
+        padding: 12px 20px;
+    }
+
+    .hero-card {
+        margin: 16px 20px;
+        padding: 24px 16px;
+    }
+
+    .info-table {
+        padding: 0 20px;
+    }
+
+    .info-row span {
+        min-width: 110px;
+    }
+
+    .cakupan-box {
+        margin: 16px 20px;
+    }
+
+    .button-wrapper {
+        padding: 16px 20px 24px;
+        justify-content: stretch;
+    }
+
+    .btn-klaim {
+        width: 100%;
+        text-align: center;
+    }
+
+    .line {
+        width: 32px;
+    }
+
+}

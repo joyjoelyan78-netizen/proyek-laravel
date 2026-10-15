@@ -1,0 +1,272 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#f5f5f5;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+.step2-wrapper{
+    width:100%;
+    min-height:100vh;
+    padding:50px 20px;
+}
+
+/* STEP */
+
+.step-wrapper{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-bottom:50px;
+    flex-wrap:wrap;
+}
+
+.step{
+    text-align:center;
+}
+
+.circle{
+    width:85px;
+    height:85px;
+    border-radius:50%;
+    background:#ddd;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:38px;
+    font-weight:bold;
+}
+
+.step.done .circle{
+    background:#4c8427;
+    color:#fff;
+}
+
+.step.active .circle{
+    background:#2710c9;
+    color:#fff;
+}
+
+.step span{
+    display:block;
+    margin-top:10px;
+    color:#666;
+    font-size:15px;
+}
+
+.line{
+    width:80px;
+    height:2px;
+    background:#222;
+    margin:0 15px;
+}
+
+.line.active{
+    background:#4c8427;
+}
+
+/* CARD */
+
+.step-card{
+    width:100%;
+    max-width:920px;
+    background:#fff;
+    border:1px solid #ddd;
+    margin:auto;
+    padding:35px;
+    border-radius:10px;
+}
+
+.step-card h2{
+    font-size:34px;
+    margin-bottom:10px;
+}
+
+.subtitle{
+    color:#777;
+    margin-bottom:40px;
+}
+
+/* FORM */
+
+.form-group{
+    margin-bottom:30px;
+}
+
+.form-group label{
+    display:block;
+    margin-bottom:12px;
+    color:#555;
+    font-weight:600;
+}
+
+.form-group input,
+.form-group select{
+    width:100%;
+    height:60px;
+    border:2px solid #ddd;
+    border-radius:10px;
+    padding:0 18px;
+    font-size:16px;
+    background:#fff;
+    outline:none;
+}
+
+.form-group input:focus,
+.form-group select:focus{
+    border-color:#2710c9;
+}
+
+/* UPLOAD */
+
+.upload-box{
+    width:100%;
+    height:260px;
+    border:2px dashed #ccc;
+    border-radius:10px;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+
+    cursor:pointer;
+    background:#fafafa;
+
+    transition:0.3s;
+}
+
+.upload-box:hover{
+    border-color:#2710c9;
+}
+
+.upload-box i{
+    font-size:70px;
+    color:#999;
+    margin-bottom:15px;
+}
+
+.upload-box h4{
+    margin-bottom:5px;
+    color:#333;
+}
+
+.upload-box p{
+    color:#999;
+}
+
+/* SUCCESS */
+
+.upload-success{
+    width:100%;
+    padding:18px;
+    border-radius:10px;
+    border:2px solid #4c8427;
+    background:#edf9e8;
+    color:#4c8427;
+
+    display:none;
+    align-items:center;
+    gap:10px;
+
+    margin-top:15px;
+
+    font-weight:bold;
+}
+
+/* BUTTON */
+
+.button-wrapper{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:50px;
+    gap:20px;
+}
+
+.btn-back,
+.btn-next{
+    width:220px;
+    height:55px;
+    border:none;
+    border-radius:10px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    text-decoration:none;
+    font-size:16px;
+    font-weight:bold;
+    color:#fff;
+
+    cursor:pointer;
+
+    background:linear-gradient(
+        90deg,
+        #000,
+        #18006f
+    );
+
+    transition:0.3s;
+}
+
+.btn-back:hover,
+.btn-next:hover{
+    transform:translateY(-2px);
+    opacity:0.95;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+    .circle{
+        width:65px;
+        height:65px;
+        font-size:28px;
+    }
+
+    .line{
+        width:40px;
+    }
+
+    .step-card{
+        padding:25px;
+    }
+
+    .step-card h2{
+        font-size:26px;
+    }
+
+    .button-wrapper{
+        flex-direction:column;
+    }
+
+    .btn-back,
+    .btn-next{
+        width:100%;
+    }
+
+}
+
+/* ERROR */
+
+.error-alert{
+    width:100%;
+    padding:18px;
+    border-radius:10px;
+
+    background:#ffe8e8;
+    border:2px solid #ff4d4d;
+
+    color:#c70000;
+
+    margin-bottom:25px;
+}
