@@ -2,7 +2,7 @@
 
 @section('content')
 
-<link rel="stylesheet" href="{{ asset('css/admin-layanan.css') }}">
+<link rel="stylesheet" href="/css/admin-layanan.css">
 
 <div class="al-header">
 
@@ -127,7 +127,7 @@
                 <span>Lampiran</span>
                 <strong>
                     @if ($penawaran->file_lampiran)
-                        <a href="{{ asset('storage/' . $penawaran->file_lampiran) }}" target="_blank" rel="noopener">
+                        <a href="/storage/{{ $penawaran->file_lampiran }}" target="_blank" rel="noopener">
                             Buka lampiran
                         </a>
                     @else

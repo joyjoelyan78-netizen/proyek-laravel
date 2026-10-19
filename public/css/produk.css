@@ -1,5 +1,5 @@
 /* =========================================================
-   HALAMAN PRODUK (PUBLIK)  -  public/css/produk_cus.css
+   HALAMAN PRODUK (PUBLIK)  -  public/css/produk.css
    Semua class memakai awalan "pk-" supaya tidak bentrok
    dengan CSS navbar/footer atau halaman lain.
 ========================================================= */
@@ -666,4 +666,34 @@
         0 0 0 0
         rgba(13,110,253,0);
     }
+}
+/* ---------- tambahan: kartu produk dari katalog ---------- */
+
+.pk-card__tag {
+    display: inline-block;
+    align-self: flex-start;
+    margin-bottom: 8px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .4px;
+    text-transform: uppercase;
+}
+
+.pk-card__tag--zinc {
+    background: #e8eefc;
+    color: #1b3a9c;
+}
+
+.pk-card__tag--aluminium {
+    background: #e3f6f2;
+    color: #0f6b5c;
+}
+
+.pk-card__meta {
+    margin-top: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #145be7;
 }

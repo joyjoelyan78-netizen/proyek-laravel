@@ -463,3 +463,80 @@ main {
         }
     }
 }
+
+
+/* =====================================================
+   TOMBOL KEMBALI (otomatis di semua halaman kecuali beranda)
+   Diletakkan melayang di area kosong atas halaman,
+   jadi tidak menggeser isi halaman.
+===================================================== */
+
+main {
+    position: relative;
+}
+
+.back-bar {
+    position: relative;
+    height: 0;
+    z-index: 30;
+}
+
+.btn-kembali {
+    position: absolute;
+    top: 18px;
+    left: 24px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 18px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, .96);
+    border: 1px solid #d6e0f3;
+    color: #0a1f5c;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 6px 18px rgba(7, 25, 77, .14);
+    transition: .2s;
+}
+
+.btn-kembali:hover {
+    background: #145be7;
+    border-color: #145be7;
+    color: #fff;
+    transform: translateX(-2px);
+}
+
+
+/* =====================================================
+   FOOTER: NOMOR & EMAIL BISA DIKLIK
+===================================================== */
+
+.footer-link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.footer-link:hover {
+    text-decoration: underline;
+}
+
+
+/* hasil pencarian navbar sekarang berupa tautan */
+
+a.search-item {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+
+@media (max-width: 768px) {
+
+    .btn-kembali {
+        top: 12px;
+        left: 12px;
+        padding: 8px 14px;
+        font-size: 13px;
+    }
+}

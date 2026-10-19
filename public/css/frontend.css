@@ -72,7 +72,7 @@ body {
 .menu {
     list-style: none;
     display: flex;
-    gap: 90px; /* 🔥 kecilin dari 60 */
+    gap: 70px; /* 🔥 kecilin dari 60 */
     
     position: absolute;
     left: 50%;

@@ -22,7 +22,7 @@ class AdminPermintaanPenawaranController extends Controller
         $status = $request->query('status');
         $cari   = trim((string) $request->query('q'));
 
-        $permintaan = PermintaanPenawaran::with('produk')
+        $permintaan = PermintaanPenawaran::query()
             ->when(
                 $status && array_key_exists($status, PermintaanPenawaran::STATUS),
                 fn ($q) => $q->where('status', $status)
@@ -60,7 +60,7 @@ class AdminPermintaanPenawaranController extends Controller
 
     public function show($id)
     {
-        $penawaran = PermintaanPenawaran::with(['produk', 'userProses'])
+        $penawaran = PermintaanPenawaran::with('userProses')
             ->findOrFail($id);
 
         return view('backend.penawaran.show', compact('penawaran'));

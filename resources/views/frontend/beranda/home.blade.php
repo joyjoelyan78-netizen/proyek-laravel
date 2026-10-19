@@ -22,7 +22,7 @@
             <h1>
                 Perlindungan Korosi
                 <br>
-                Terpercaya <span>Sejak 1977</span>
+                Terpercaya <span>Sejak 1997</span>
             </h1>
 
             <p>
@@ -145,20 +145,20 @@
 
         <div class="products-preview" data-aos="fade-left">
 
-            @foreach($products->take(2) as $product)
+            @foreach($products as $product)
 
                 <a
-                    href="{{ route('produk.detail', $product->slug) }}"
+                    href="{{ route('produk.detail', $product['slug']) }}"
                     class="home-product-card"
                 >
 
                     <div class="product-image">
 
-                        @if($product->gambar_produk)
+                        @if($product['foto'])
 
                             <img
-                                src="/storage/{{ $product->gambar_produk }}"
-                                alt="{{ $product->nama_produk }}"
+                                src="{{ $product['foto'] }}"
+                                alt="{{ $product['nama'] }}"
                                 loading="lazy"
                             >
 
@@ -175,12 +175,11 @@
                     <div class="product-card-content">
 
                         <h3>
-                            {{ $product->nama_produk }}
+                            {{ $product['nama'] }}
                         </h3>
 
                         <p>
-                            Anoda berkualitas untuk perlindungan
-                            korosi sistem katodik.
+                            {{ $product['ringkas'] }}
                         </p>
 
                         <span>
@@ -419,7 +418,7 @@
         </div>
 
         <div class="partner-logo">
-            <img src="/image/meratus2.png" alt="SPIL">
+            <img src="/image/MERATUS2.png" alt="SPIL">
         </div>
 
         <div class="partner-logo">

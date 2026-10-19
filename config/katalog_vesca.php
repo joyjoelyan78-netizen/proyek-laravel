@@ -10,6 +10,11 @@
 | Kalau katalog diperbarui (tipe baru, berat berubah, dll.), cukup ubah
 | file ini. Tidak perlu mengubah tampilan atau database.
 |
+| Data produk untuk halaman web (nama, foto, kegunaan) juga diatur di sini:
+|   - 'slug'     : alamat halaman, contoh /produk/zinc-las
+|   - 'gambar'   : nama file foto di public/image/produk/ (yang pertama = foto utama)
+|   - 'bentuk'   : jenis pemasangan (dipakai untuk rekomendasi produk serupa)
+|
 | Format baris tabel:  [kode tipe, kolom 2, kolom 3, ...]
 |   - 'kolom'     : judul kolom tabel (urutan sama dengan baris)
 |   - 'format'    : pola ringkasan per kolom ke-2 dst. (untuk dropdown)
@@ -83,6 +88,17 @@ return [
 
         'aluminium_las' => [
             'bahan'     => 'aluminium',
+            'slug'      => 'aluminium-las',
+            'bentuk'    => 'las',
+            'judul'     => 'Aluminium Anode Tipe Las',
+            'subjudul'  => 'Ship Hull Welding Type',
+            'ringkas'   => 'Anoda aluminium untuk lambung kapal, dipasang dengan cara dilas.',
+            'gambar'    => ['aluminium-las.jpg'],
+            'kegunaan'  => [
+                'Proteksi katodik lambung kapal (ship hull)',
+                'Dipasang dengan las pada core baja',
+                'Dibuat dari ingot aluminium kemurnian tinggi',
+            ],
             'nama'      => 'Tipe Las (Ship Hull Welding)',
             'deskripsi' => 'Anoda aluminium untuk lambung kapal, dipasang dengan cara dilas.',
             'kolom'     => ['Tipe', 'Dimensi anoda (L x W x T) mm', 'Dimensi core (P x L x T) mm', 'Berat nett (kg)', 'Berat gross (kg)'],
@@ -104,6 +120,17 @@ return [
 
         'aluminium_baut' => [
             'bahan'     => 'aluminium',
+            'slug'      => 'aluminium-baut',
+            'bentuk'    => 'baut',
+            'judul'     => 'Aluminium Anode Tipe Baut',
+            'subjudul'  => 'Ship Hull Bolt Type',
+            'ringkas'   => 'Anoda aluminium untuk lambung kapal, dipasang dengan baut.',
+            'gambar'    => ['aluminium-baut-1.jpg', 'aluminium-baut-2.jpg'],
+            'kegunaan'  => [
+                'Proteksi katodik lambung kapal (ship hull)',
+                'Dipasang dengan baut, jarak baut mengikuti tipe',
+                'Dibuat dari ingot aluminium kemurnian tinggi',
+            ],
             'nama'      => 'Tipe Baut (Ship Hull Bolt)',
             'deskripsi' => 'Anoda aluminium untuk lambung kapal, dipasang dengan baut.',
             'kolom'     => ['Tipe', 'Dimensi anoda (L x W x T) mm', 'Dimensi core (PCD)', 'Berat nett (kg)', 'Berat gross (kg)'],
@@ -124,6 +151,17 @@ return [
 
         'aluminium_batang' => [
             'bahan'     => 'aluminium',
+            'slug'      => 'aluminium-batang',
+            'bentuk'    => 'batang',
+            'judul'     => 'Aluminium Rod Anode',
+            'subjudul'  => 'Anoda Batang',
+            'ringkas'   => 'Anoda aluminium berbentuk batang / silinder dalam berbagai ukuran.',
+            'gambar'    => ['aluminium-batang.jpg'],
+            'kegunaan'  => [
+                'Berbentuk batang (rod) dan silinder',
+                'Tersedia dalam berbagai panjang dan diameter',
+                'Penggunaan yang tepat bisa dikonsultasikan dengan tim teknis',
+            ],
             'nama'      => 'Rod Anode (Batang)',
             'deskripsi' => 'Anoda aluminium berbentuk batang / silinder.',
             'kolom'     => ['Tipe', 'Berat (kg)', 'Panjang (mm)', 'Diameter (mm)'],
@@ -152,6 +190,17 @@ return [
 
         'aluminium_platform' => [
             'bahan'     => 'aluminium',
+            'slug'      => 'aluminium-platform',
+            'bentuk'    => 'platform',
+            'judul'     => 'Aluminium Anode Platform / Jetty',
+            'subjudul'  => 'Platform or Jetty Aluminium Anodes',
+            'ringkas'   => 'Anoda aluminium berukuran besar untuk platform dan dermaga (jetty).',
+            'gambar'    => ['aluminium-platform-1.jpg', 'aluminium-platform-2.jpg'],
+            'kegunaan'  => [
+                'Untuk platform dan dermaga (jetty)',
+                'Dilengkapi core baja untuk pemasangan',
+                'Ukuran besar untuk kebutuhan struktur',
+            ],
             'nama'      => 'Platform / Jetty',
             'deskripsi' => 'Anoda aluminium untuk platform dan dermaga (jetty).',
             'kolom'     => ['Tipe', 'Panjang anoda (mm)', 'Lebar anoda (mm)', 'Tinggi anoda (mm)', 'Core extension (mm)', 'Diameter core (mm)', 'Berat nett (kg)', 'Berat gross (kg)'],
@@ -173,6 +222,17 @@ return [
 
         'zinc_las' => [
             'bahan'     => 'zinc',
+            'slug'      => 'zinc-las',
+            'bentuk'    => 'las',
+            'judul'     => 'Zinc Anode Tipe Las',
+            'subjudul'  => 'Ship Hull Welding Type',
+            'ringkas'   => 'Anoda zinc untuk lambung kapal, dipasang dengan cara dilas.',
+            'gambar'    => ['zinc-las.jpg'],
+            'kegunaan'  => [
+                'Proteksi katodik lambung kapal (ship hull)',
+                'Dipasang dengan las pada core baja',
+                'Mengacu spesifikasi A-1800-J, paduan zinc kemurnian 99.995%',
+            ],
             'nama'      => 'Tipe Las (Ship Hull Welding)',
             'deskripsi' => 'Anoda zinc untuk lambung kapal, dipasang dengan cara dilas.',
             'kolom'     => ['Tipe', 'Dimensi anoda (L x W x T) mm', 'Dimensi core (P x L x T) mm', 'Berat nett (kg)', 'Berat gross (kg)'],
@@ -193,6 +253,17 @@ return [
 
         'zinc_baut' => [
             'bahan'     => 'zinc',
+            'slug'      => 'zinc-baut',
+            'bentuk'    => 'baut',
+            'judul'     => 'Zinc Anode Seri B (Baut)',
+            'subjudul'  => 'Ship Hull B Series',
+            'ringkas'   => 'Anoda zinc seri B untuk lambung kapal, dipasang dengan baut.',
+            'gambar'    => ['zinc-baut.jpg'],
+            'kegunaan'  => [
+                'Proteksi katodik lambung kapal (ship hull)',
+                'Dipasang dengan baut, jarak baut mengikuti tipe',
+                'Mengacu spesifikasi A-1800-J, paduan zinc kemurnian 99.995%',
+            ],
             'nama'      => 'Seri B (Baut)',
             'deskripsi' => 'Anoda zinc untuk lambung kapal, seri B dengan pemasangan baut.',
             'kolom'     => ['Tipe', 'Dimensi anoda (L x W x T) mm', 'Dimensi core (PCD)', 'Berat nett (kg)', 'Berat gross (kg)'],
@@ -212,6 +283,17 @@ return [
 
         'zinc_tank' => [
             'bahan'     => 'zinc',
+            'slug'      => 'zinc-tank',
+            'bentuk'    => 'tank',
+            'judul'     => 'Zinc Tank Anode',
+            'subjudul'  => 'Anoda untuk Tangki',
+            'ringkas'   => 'Anoda zinc untuk tangki (tank anode), dilengkapi core baja.',
+            'gambar'    => ['zinc-tank-1.jpg', 'zinc-tank-2.jpg'],
+            'kegunaan'  => [
+                'Dirancang untuk tangki (tank anode)',
+                'Dilengkapi core baja untuk pemasangan',
+                'Mengacu spesifikasi A-1800-J, paduan zinc kemurnian 99.995%',
+            ],
             'nama'      => 'Tank Anode',
             'deskripsi' => 'Anoda zinc untuk tangki.',
             'kolom'     => ['Tipe', 'A (mm)', 'B (mm)', 'C (mm)', 'D (mm)', 'Diameter core (mm)', 'Berat nett (kg)', 'Berat gross (kg)'],
@@ -228,6 +310,17 @@ return [
 
         'zinc_batang' => [
             'bahan'     => 'zinc',
+            'slug'      => 'zinc-batang',
+            'bentuk'    => 'batang',
+            'judul'     => 'Zinc Rod Anode',
+            'subjudul'  => 'Anoda Batang',
+            'ringkas'   => 'Anoda zinc berbentuk batang / silinder dalam berbagai ukuran.',
+            'gambar'    => ['zinc-batang.jpg'],
+            'kegunaan'  => [
+                'Berbentuk batang (rod) dan silinder',
+                'Tersedia dalam berbagai panjang dan diameter',
+                'Penggunaan yang tepat bisa dikonsultasikan dengan tim teknis',
+            ],
             'nama'      => 'Rod Anode (Batang)',
             'deskripsi' => 'Anoda zinc berbentuk batang / silinder.',
             'kolom'     => ['Tipe', 'Berat (kg)', 'Panjang (mm)', 'Diameter (mm)'],

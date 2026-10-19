@@ -2,7 +2,7 @@
 
 @section('content')
 
-<link rel="stylesheet" href="{{ asset('css/admin-layanan.css') }}">
+<link rel="stylesheet" href="/css/admin-layanan.css">
 
 <div class="al-header">
     <h1>Konsultasi Teknis</h1>

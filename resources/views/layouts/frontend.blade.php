@@ -158,7 +158,21 @@
 
     <!-- CONTENT -->
     <main>
+
+        {{-- TOMBOL KEMBALI: otomatis muncul di semua halaman kecuali beranda.
+             Halaman bisa mengatur tujuan cadangan dengan
+             @section('kembali_ke', '/produk') --}}
+        @unless (request()->is('/'))
+            <div class="back-bar">
+                <a href="@yield('kembali_ke', '/')" class="btn-kembali" aria-label="Kembali ke halaman sebelumnya">
+                    <i class="fas fa-arrow-left"></i>
+                    <span>Kembali</span>
+                </a>
+            </div>
+        @endunless
+
         @yield('content')
+
     </main>
 
     <!-- FOOTER -->
@@ -168,7 +182,7 @@
             <!-- KIRI -->
             <div class="footer-left" data-aos="fade-down" data-aos-duration="2000">
                 <img
-                    src="/image/Vesca New logo white.png"
+                    src="/image/vesca new logo white.png"
                     class="footer-logo"
                     alt="Logo PT Vescarindo Utama"
                     width="220"
@@ -197,9 +211,22 @@
                 <h3>Vescarindo Utama</h3>
 
                 <p><i class="fas fa-location-dot"></i> {{ config('vesca.alamat_footer') }}</p>
-                <p><i class="fas fa-phone"></i> Hubungi kami dengan telepon</p>
-                <p><i class="fas fa-comment-dots"></i> Hubungi kami dengan WhatsApp</p>
-                <p><i class="fas fa-envelope"></i> Hubungi kami dengan Email</p>
+                @foreach (config('vesca.kontak_wa') as $kontak)
+                    <p>
+                        <i class="fab fa-whatsapp"></i>
+                        <a class="footer-link"
+                           href="https://wa.me/{{ $kontak['nomor'] }}?text={{ rawurlencode('Halo PT Vescarindo Utama, saya ingin bertanya mengenai produk Vesca.') }}"
+                           target="_blank" rel="noopener"
+                           title="Chat via WhatsApp">{{ $kontak['label'] }}</a>
+                    </p>
+                @endforeach
+
+                <p>
+                    <i class="fas fa-envelope"></i>
+                    <a class="footer-link"
+                       href="mailto:{{ config('vesca.email') }}?subject={{ rawurlencode('Pertanyaan produk Vesca') }}"
+                       title="Kirim email">{{ config('vesca.email') }}</a>
+                </p>
             </div>
 
         </div>
@@ -316,9 +343,21 @@
     const searchInput = document.getElementById('search-input');
     const searchResult = document.getElementById('search-result');
 
-    searchInput.addEventListener('keyup', function(){
+    let timerCari = null;
 
-        let search = this.value;
+    function amankan(teks){
+        return String(teks)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;');
+    }
+
+    searchInput.addEventListener('input', function(){
+
+        const search = this.value.trim();
+
+        clearTimeout(timerCari);
 
         if(search.length < 1){
 
@@ -326,51 +365,37 @@
             return;
         }
 
-        fetch(`/search-produk?search=${search}`)
+        timerCari = setTimeout(function(){
 
-        .then(response => response.json())
+            fetch('/search-produk?search=' + encodeURIComponent(search))
 
-        .then(data => {
+            .then(response => response.json())
 
-            let html = '';
+            .then(data => {
 
-            if(data.length > 0){
+                let html = '';
 
-                data.forEach(item => {
+                if(data.length > 0){
 
-                    html += `
-                        <div class="search-item"
-                            onclick="pilihProduk('${item.nama_produk}')">
+                    data.forEach(item => {
 
-                            ${item.nama_produk}
+                        html += '<a class="search-item" href="' + amankan(item.url) + '">'
+                              + amankan(item.label) + '</a>';
+                    });
 
-                        </div>
-                    `;
-                });
+                } else {
 
-            } else {
+                    html = '<div class="search-item">Produk tidak ditemukan</div>';
+                }
 
-                html += `
-                    <div class="search-item">
-                        Produk tidak ditemukan
-                    </div>
-                `;
-            }
+                searchResult.innerHTML = html;
+                searchResult.style.display = 'block';
 
-            searchResult.innerHTML = html;
-            searchResult.style.display = 'block';
+            });
 
-        });
+        }, 180);
 
     });
-
-    /* KLIK ITEM */
-    function pilihProduk(nama){
-
-        window.location.href =
-            `/produk?search=${nama}`;
-
-    }
 
     /* HIDE */
     document.addEventListener('click', function(e){
@@ -542,7 +567,37 @@
 
     </script>
 
-        <!-- RESPONSIVE (dimuat terakhir supaya menimpa CSS tiap halaman) -->
+        <script>
+
+    /* TOMBOL KEMBALI: kalau pengunjung datang dari halaman lain di website ini,
+       kembali ke halaman itu; kalau tidak (misal buka lewat link langsung),
+       pakai alamat cadangan di tombolnya. */
+
+    document.querySelectorAll('.btn-kembali').forEach(function (tombol) {
+
+        tombol.addEventListener('click', function (e) {
+
+            try {
+
+                if (
+                    document.referrer &&
+                    new URL(document.referrer).origin === window.location.origin &&
+                    window.history.length > 1
+                ) {
+
+                    e.preventDefault();
+                    window.history.back();
+                }
+
+            } catch (err) { /* abaikan, ikuti alamat cadangan */ }
+
+        });
+
+    });
+
+    </script>
+
+    <!-- RESPONSIVE (dimuat terakhir supaya menimpa CSS tiap halaman) -->
     <link rel="stylesheet" href="/css/responsive.css">
 
     </body>

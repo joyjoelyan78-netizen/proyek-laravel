@@ -79,10 +79,6 @@ class KonsultasiTeknis extends Model
     |--------------------------------------------------------------------------
     */
 
-    public function produk()
-    {
-        return $this->belongsTo(Produk::class, 'id_produk', 'id_produk');
-    }
 
     public function userBalas()
     {

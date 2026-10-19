@@ -2,18 +2,20 @@
 
 @section('content')
 
-<link rel="stylesheet"
-      href="{{ asset('css/user-admin.css') }}">
+<link rel="stylesheet" href="/css/user-admin.css">
 
 <div class="page-header">
-
-    <h1>User Admin</h1>
-
-    <a href="/admin/users/create" class="btn-primary">
-        + Tambah User
-    </a>
-
+    <h1>Akun Admin</h1>
+    <a href="{{ route('admin.users.create') }}" class="btn-primary">+ Tambah Akun</a>
 </div>
+
+@if (session('success'))
+    <div style="background:#d4edda;color:#155724;padding:12px 16px;border-radius:8px;margin-bottom:16px;font-size:14px;">{{ session('success') }}</div>
+@endif
+
+@if (session('error'))
+    <div style="background:#f8d7da;color:#721c24;padding:12px 16px;border-radius:8px;margin-bottom:16px;font-size:14px;">{{ session('error') }}</div>
+@endif
 
 <div class="card-table">
 
@@ -24,97 +26,58 @@
                 <th>No</th>
                 <th>Nama</th>
                 <th>Email</th>
-                <th>Role</th>
-                <th>Status</th>
+                <th>Peran</th>
                 <th width="220">Aksi</th>
             </tr>
         </thead>
 
         <tbody>
 
-            @foreach($users as $item)
+            @foreach ($users as $item)
 
-            <tr>
+                <tr>
 
-                <td>{{ $loop->iteration }}</td>
+                    <td>{{ $loop->iteration }}</td>
 
-                <td>
-                    <strong>{{ $item->nama }}</strong>
-                </td>
+                    <td><strong>{{ $item->nama }}</strong></td>
 
-                <td>{{ $item->email }}</td>
+                    <td>{{ $item->email }}</td>
 
-                <td>
+                    <td>
+                        @if ($item->hasRole('Super Admin'))
+                            <span class="badge-superadmin">Super Admin</span>
+                        @else
+                            <span class="badge-role">Staf Admin</span>
+                        @endif
+                    </td>
 
-                    @foreach($item->roles as $role)
+                    <td>
 
-                        <span class="badge-role">
-                            {{ $role->nama_role }}
-                        </span>
+                        @if ($item->hasRole('Super Admin'))
 
-                    @endforeach
+                            <span class="badge-superadmin">Protected</span>
 
-                </td>
+                        @else
 
-                <td>
+                            <div class="action-buttons">
 
-                    @if($item->status_user == 'aktif')
+                                <a href="{{ route('admin.users.edit', $item->id_user) }}" class="btn-edit">Edit</a>
 
-                        <span class="badge-active">
-                            Aktif
-                        </span>
+                                <form action="{{ route('admin.users.destroy', $item->id_user) }}"
+                                      method="POST"
+                                      onsubmit="return confirm('Yakin hapus akun ini?')">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn-delete">Hapus</button>
+                                </form>
 
-                    @else
+                            </div>
 
-                        <span class="badge-nonactive">
-                            Nonaktif
-                        </span>
+                        @endif
 
-                    @endif
+                    </td>
 
-                </td>
-
-                <td>
-
-                    @if($item->hasRole('Super Admin'))
-
-                        <span class="badge-superadmin">
-                            Protected
-                        </span>
-
-                    @else
-
-                        <div class="action-buttons">
-
-                            <a href="/admin/users/{{ $item->id_user }}/edit"
-                               class="btn-edit">
-
-                                Edit
-
-                            </a>
-
-                            <form action="/admin/users/{{ $item->id_user }}"
-                                  method="POST">
-
-                                @csrf
-                                @method('DELETE')
-
-                                <button class="btn-delete"
-                                        onclick="return confirm('Hapus user?')">
-
-                                    Hapus
-
-                                </button>
-
-                            </form>
-
-                        </div>
-
-                    @endif
-
-                </td>
-
-            </tr>
+                </tr>
 
             @endforeach
 

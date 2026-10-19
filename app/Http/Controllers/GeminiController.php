@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Support\KatalogVesca;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
-use App\Models\Produk;
 
 class GeminiController extends Controller
 {
@@ -12,24 +12,42 @@ class GeminiController extends Controller
     {
         $message = $request->message;
 
-        // Ambil data produk
-        $produk = Produk::with('kategori')->get();
-
+        // Data produk diambil dari katalog di kode (config/katalog_vesca.php)
         $listProduk = '';
 
-        foreach ($produk as $item) {
+        foreach (KatalogVesca::produk() as $produk) {
 
-            $listProduk .= "
-            Nama Produk: {$item->nama_produk}
-            Seri Produk: {$item->seri_produk}
-            Kategori: " . ($item->kategori->nama_kategori ?? '-') . "
-            Deskripsi: {$item->deskripsi}
-            Berat: {$item->berat}
-            Dimensi: {$item->dimensi}
-            Garansi: {$item->masa_garansi_bulan} bulan
+            $listProduk .= "\nProduk: {$produk['nama']} ({$produk['bahan_nama']})\n";
+            $listProduk .= "Keterangan: {$produk['ringkas']}\n";
+            $listProduk .= "Tipe yang tersedia:\n";
 
-            ";
+            foreach ($produk['seri']['baris'] as $baris) {
+
+                $tipe = KatalogVesca::cariTipe($produk['key'], $baris[0]);
+
+                $listProduk .= "- {$baris[0]}: " . ($tipe['ringkas'] ?? '') . "\n";
+            }
         }
+
+        // Data performa tiap bahan
+        $dataTeknis = '';
+
+        foreach (KatalogVesca::bahan() as $bahan) {
+
+            $dataTeknis .= "- {$bahan['nama']}: ";
+
+            $bagian = [];
+
+            foreach ($bahan['performa'] as $label => $nilai) {
+                $bagian[] = "{$label} {$nilai}";
+            }
+
+            $dataTeknis .= implode('; ', $bagian) . ". {$bahan['ringkasan']}\n";
+        }
+
+        $alamat  = implode(', ', config('vesca.alamat'));
+        $telepon = collect(config('vesca.kontak_wa'))->pluck('label')->implode(' / ');
+        $email   = config('vesca.email');
 
         $prompt = "
         Kamu adalah AI Customer Service PT Vescarindo Utama.
@@ -39,20 +57,22 @@ class GeminiController extends Controller
         - PT Vescarindo Utama bergerak di bidang perlindungan korosi.
         - Produk utama adalah Aluminium Anode dan Zinc Anode dengan merek VESCA.
         - Berdiri sejak tahun 1997.
-        - Alamat perusahaan:
-          JL. H. GEMON NO 39 PONDOK KELAPA TIMUR 13450.
+        - Alamat perusahaan: {$alamat}.
+        - Kontak WhatsApp / telepon: {$telepon}.
+        - Email: {$email}.
 
         Informasi layanan website:
 
         1. Produk
-        Pengunjung dapat melihat seluruh produk dan detail produk.
+        Pengunjung dapat melihat seluruh produk dan detail produk. Setiap halaman
+        produk berisi tabel semua tipe, tombol WhatsApp, dan rekomendasi produk lain.
 
         2. Minta Penawaran Resmi
         Cara meminta penawaran:
 
         - Klik menu Layanan pada navbar.
         - Pilih submenu Minta Penawaran Resmi.
-        - Isi data diri, produk yang dibutuhkan, jumlah, dan lokasi pengiriman.
+        - Pilih seri dan tipe produk, isi jumlah, data diri, dan lokasi pengiriman.
         - Kirim permintaan, pengunjung akan mendapat nomor permintaan.
         - Tim PT Vescarindo Utama akan mengirim surat penawaran resmi lewat email atau WhatsApp.
 
@@ -66,12 +86,9 @@ class GeminiController extends Controller
 
         Data teknis dari katalog (nominal):
 
-        - Aluminium Anode: potensial -1.10 volt terhadap Ag/AgCl, kapasitas listrik 2700 Ampere-jam per kg, dikembangkan khusus untuk air laut dan lumpur laut.
-        - Zinc Anode: potensial -1.05 volt terhadap Ag/AgCl, kapasitas listrik 780 Ampere-jam per kg, mengacu spesifikasi A-1800-J.
-        - Seri Aluminium: Tipe Las (AV-140 sampai AV-300), Tipe Baut (B2 sampai B11), Rod/Batang (AVR-101 sampai AVR-117), Platform/Jetty (AVS-45 sampai AVS-565).
-        - Seri Zinc: Tipe Las (S-2 sampai S-9, ZV-320, ZV-450, ZV-165), Seri B Baut (B2 sampai B9F), Tank Anode (ZVT-212 sampai ZVT-500), Rod/Batang.
+        {$dataTeknis}
         - Sertifikasi: BKI Type Approval untuk Aluminium Anode dan Zinc Anode, serta ISO 9001:2015.
-        - Tabel ukuran dan berat lengkap ada di halaman Konsultasi & Spesifikasi Teknis. Jangan menyebutkan ukuran atau berat yang tidak ada di data ini.
+        - Jangan menyebutkan ukuran atau berat yang tidak ada di data produk di bawah ini.
 
         Data produk:
 
@@ -84,11 +101,10 @@ class GeminiController extends Controller
         - Gunakan bahasa Indonesia yang natural seperti customer service modern.
         - Jika ditanya produk, gunakan data produk yang tersedia.
         - Jangan mengarang produk yang tidak ada.
-        - Jika ditanya sesuatu yang tidak berhubungan dengan PT Vescarindo Utama, jawab:
         - Saat menjelaskan cara minta penawaran atau konsultasi, selalu sebutkan bahwa menu tersebut berada di dalam menu Layanan.
         - Jika ditanya harga, jangan menyebutkan angka. Arahkan pelanggan untuk memakai menu Minta Penawaran Resmi.
-
-        'Maaf, saya hanya dapat membantu informasi seputar produk dan layanan PT Vescarindo Utama.'
+        - Jika ditanya sesuatu yang tidak berhubungan dengan PT Vescarindo Utama, jawab:
+          'Maaf, saya hanya dapat membantu informasi seputar produk dan layanan PT Vescarindo Utama.'
 
         Pertanyaan pelanggan:
 

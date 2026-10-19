@@ -20,7 +20,7 @@
         {{-- PETA LOKASI --}}
         <div class="kontak-map">
             <iframe
-                src="https://www.google.com/maps?q=JL.%20H.%20Gemon%20No.%2039%20Pondok%20Kelapa%20Timur%2013450&output=embed"
+                src="https://www.google.com/maps?q=Vescarindo+Utama+PT,+Jl.+Pangkalan+II+No.RT.+04,+RT.004%2FRW.03,+Cikiwul,+Kec.+Bantar+Gebang,+Kota+Bekasi,+Jawa+Barat+17152&output=embed"
                 title="Lokasi PT Vescarindo Utama"
                 loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"
@@ -45,8 +45,7 @@
                     <div>
                         <h3>Alamat</h3>
                         <p>
-                            JL. H. Gemon No. 39,
-                            Pondok Kelapa Timur 13450
+                            Jl. Narogong KM. 12, Pangkalan 2, Cikiwul, Bantar Gebang, Bekasi
                         </p>
                     </div>
                 </div>

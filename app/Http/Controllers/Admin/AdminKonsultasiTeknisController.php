@@ -21,7 +21,7 @@ class AdminKonsultasiTeknisController extends Controller
         $status = $request->query('status');
         $cari   = trim((string) $request->query('q'));
 
-        $konsultasi = KonsultasiTeknis::with('produk')
+        $konsultasi = KonsultasiTeknis::query()
             ->when(
                 $status && array_key_exists($status, KonsultasiTeknis::STATUS),
                 fn ($q) => $q->where('status', $status)
@@ -58,7 +58,7 @@ class AdminKonsultasiTeknisController extends Controller
 
     public function show($id)
     {
-        $konsultasi = KonsultasiTeknis::with(['produk', 'userBalas'])
+        $konsultasi = KonsultasiTeknis::with('userBalas')
             ->findOrFail($id);
 
         return view('backend.konsultasi.show', compact('konsultasi'));
