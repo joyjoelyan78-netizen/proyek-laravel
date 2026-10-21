@@ -7,6 +7,8 @@ use App\Models\KonsultasiTeknis;
 use App\Support\KatalogVesca;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Log;
 
 class KonsultasiTeknisController extends Controller
 {
@@ -81,12 +83,50 @@ class KonsultasiTeknisController extends Controller
 
         $data['status'] = 'baru';
 
+        
         $konsultasi = KonsultasiTeknis::buatDenganNomor($data);
+
+        try {
+            $isiEmail =
+                "Konsultasi Teknis Baru\n\n" .
+                "Nomor Konsultasi: {$konsultasi->nomor_konsultasi}\n" .
+                "Nama: {$data['nama_pengirim']}\n" .
+                "Perusahaan: " . ($data['nama_perusahaan'] ?? '-') . "\n" .
+                "Email: {$data['email']}\n" .
+                "Telepon: {$data['nomor_telepon']}\n" .
+                "Jenis Kapal/Struktur: {$data['jenis_kapal']}\n" .
+                "Ukuran Kapal: " . ($data['ukuran_kapal'] ?? '-') . "\n" .
+                "Bagian Dilindungi: " . ($data['bagian_dilindungi'] ?? '-') . "\n" .
+                "Kondisi Air: {$data['kondisi_air']}\n" .
+                "Produk Diminati: " . ($data['produk_diminati'] ?? '-') . "\n\n" .
+                "Pertanyaan:\n{$data['pertanyaan']}";
+
+            Mail::raw($isiEmail, function ($message) use ($data, $konsultasi) {
+                $message->to('vescarindo12@gmail.com')
+                    ->subject(
+                        '[Konsultasi Teknis] ' . $konsultasi->nomor_konsultasi
+                    )
+                    ->replyTo($data['email'], $data['nama_pengirim']);
+            });
+        } catch (\Throwable $e) {
+            Log::error('Gagal mengirim email konsultasi teknis', [
+                'nomor' => $konsultasi->nomor_konsultasi,
+                'error' => $e->getMessage(),
+            ]);
+
+            return redirect()
+                ->route('konsultasi.sukses')
+                ->with('nomor', $konsultasi->nomor_konsultasi)
+                ->with('email_warning',
+                    'Data konsultasi tersimpan, tetapi notifikasi email gagal dikirim.');
+        }
 
         return redirect()
             ->route('konsultasi.sukses')
-            ->with('nomor', $konsultasi->nomor_konsultasi);
-    }
+            ->with('nomor', $konsultasi->nomor_konsultasi)
+            ->with('email_success', true);
+
+            }
 
     /*
     |------------------------------------------------------------------

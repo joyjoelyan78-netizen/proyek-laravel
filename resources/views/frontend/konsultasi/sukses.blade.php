@@ -29,6 +29,21 @@
             <span>Nomor konsultasi Anda</span>
             <strong>{{ $nomor }}</strong>
         </div>
+ 
+        @if (session('email_success'))
+            <p class="lf-email-success">
+                <i class="fas fa-check-circle"></i>
+                Notifikasi konsultasi berhasil dikirim ke tim kami melalui email.
+            </p>
+        @endif
+
+        @if (session('email_warning'))
+            <p class="lf-email-warning" role="alert">
+                <i class="fas fa-exclamation-circle"></i>
+                {{ session('email_warning') }}
+            </p>
+        @endif
+
 
         <p>
             Jawaban akan dikirim melalui email atau WhatsApp dengan estimasi

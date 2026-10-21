@@ -11,6 +11,9 @@ use App\Http\Controllers\Admin\AdminKonsultasiTeknisController;
 use App\Http\Controllers\Frontend\PermintaanPenawaranController;
 use App\Http\Controllers\Frontend\KonsultasiTeknisController;
 use App\Support\KatalogVesca;
+use App\Http\Controllers\Frontend\KontakController;
+use App\Models\Produk;
+use App\Http\Controllers\KategoriProdukController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +36,12 @@ Route::get('/hubungi-kami', function () {
     return view('frontend.kontak.index');
 })->name('hubungi');
 
+Route::post('/hubungi-kami', [KontakController::class, 'store'])
+    ->middleware('throttle:10,10')
+    ->name('hubungi.store');
+
+Route::view('/galeri', 'frontend.galeri.index')
+    ->name('galeri');   
 
 /*
 |--------------------------------------------------------------------------
@@ -77,6 +86,24 @@ Route::post('/minta-penawaran', [PermintaanPenawaranController::class, 'store'])
 Route::get('/minta-penawaran/terkirim', [PermintaanPenawaranController::class, 'sukses'])
     ->name('penawaran.sukses');
 
+
+
+/*
+|--------------------------------------------------------------------------
+| PRODUK
+|--------------------------------------------------------------------------
+*/
+
+Route::get('/produk', [ProdukController::class, 'semuaProduk'])
+    ->name('produk');
+
+Route::get('/produk/kategori/{slug}', [ProdukController::class, 'kategori'])
+    ->name('produk.kategori');
+
+Route::get('/produk/{slug}', [ProdukController::class, 'detail'])
+    ->name('produk.detail');
+
+Route::get('/search-produk', [ProdukController::class, 'searchAjax']);
 
 /*
 |--------------------------------------------------------------------------
@@ -150,6 +177,12 @@ Route::middleware('auth')
 
         Route::delete('/konsultasi-teknis/{id}', [AdminKonsultasiTeknisController::class, 'destroy'])
             ->name('admin.konsultasi.destroy');
+
+                // CRUD KATEGORI PRODUK
+        Route::resource('kategori-produk', KategoriProdukController::class);
+
+        // CRUD PRODUK
+        Route::resource('produk', ProdukController::class);
 
         // ----- Akun saya (ganti password) -----
         Route::view('/akun', 'backend.akun.index')

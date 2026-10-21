@@ -9,6 +9,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\ValidationException;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
 
 class PermintaanPenawaranController extends Controller
 {
@@ -119,11 +122,67 @@ class PermintaanPenawaranController extends Controller
                 ->store('penawaran', 'public');
         }
 
+        
         $penawaran = PermintaanPenawaran::buatDenganNomor($simpan);
+
+        try {
+            $isiEmail =
+                "Permintaan Penawaran Baru\n\n" .
+                "Nomor Permintaan: {$penawaran->nomor_permintaan}\n" .
+                "Nama: {$data['nama_pemohon']}\n" .
+                "Perusahaan: " . ($data['nama_perusahaan'] ?? '-') . "\n" .
+                "Email: {$data['email']}\n" .
+                "Telepon: {$data['nomor_telepon']}\n" .
+                "Jenis Kapal/Struktur: " . ($data['jenis_kapal'] ?? '-') . "\n" .
+                "Lokasi Pengiriman: {$data['lokasi_pengiriman']}\n" .
+                "Tanggal Dibutuhkan: " . ($data['tanggal_dibutuhkan'] ?? '-') . "\n\n" .
+                "Rincian Produk:\n" .
+                json_encode(
+                    $item,
+                    JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE
+                ) . "\n\n" .
+                "Catatan:\n" . ($data['catatan'] ?? '-');
+
+            Mail::raw($isiEmail, function ($message) use (
+                $data,
+                $penawaran,
+                $simpan
+            ) {
+                $message->to('vescarindo12@gmail.com')
+                    ->subject(
+                        '[Minta Penawaran] ' . $penawaran->nomor_permintaan
+                    )
+                    ->replyTo($data['email'], $data['nama_pemohon']);
+
+                $pathLampiran = $simpan['file_lampiran'] ?? null;
+
+                if (
+                    $pathLampiran &&
+                    Storage::disk('public')->exists($pathLampiran)
+                ) {
+                    $message->attach(
+                        Storage::disk('public')->path($pathLampiran)
+                    );
+                }
+            });
+        } catch (\Throwable $e) {
+            Log::error('Gagal mengirim email permintaan penawaran', [
+                'nomor' => $penawaran->nomor_permintaan,
+                'error' => $e->getMessage(),
+            ]);
+
+            return redirect()
+                ->route('penawaran.sukses')
+                ->with('nomor', $penawaran->nomor_permintaan)
+                ->with('email_warning',
+                    'Permintaan tersimpan, tetapi notifikasi email gagal dikirim.');
+        }
 
         return redirect()
             ->route('penawaran.sukses')
-            ->with('nomor', $penawaran->nomor_permintaan);
+            ->with('nomor', $penawaran->nomor_permintaan)
+            ->with('email_success', true);
+
     }
 
     /*

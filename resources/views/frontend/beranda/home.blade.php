@@ -379,55 +379,275 @@
 
 </section>
 
-
-
 {{-- =========================================================
-     MITRA
+     MITRA KAMI
 ========================================================= --}}
 
-<section class="partners">
+<section class="partners partners-vesca">
 
-    <h2 data-aos="fade-up">
-        Mitra Kami
-    </h2>
+    <div class="partners-heading" data-aos="fade-up">
+        <span class="partners-eyebrow">Dipercaya Berbagai Industri</span>
+        <h2>Mitra Kami</h2>
+        <p>
+            Bersama mitra terpercaya, kami mendukung kebutuhan industri
+            dan solusi perlindungan korosi.
+        </p>
+    </div>
 
     <div class="partners-grid" data-aos="fade-up">
 
         <div class="partner-logo">
-            <img src="/image/samudera.png" alt="Samudera">
+            <img src="{{ asset('image/logo/destinasi_maritim.png') }}"
+                 alt="Destinasi Maritim"
+                 style="transform:scale(1.3);">
         </div>
 
         <div class="partner-logo">
-            <img src="/image/meratus.png" alt="Meratus">
+            <img src="{{ asset('image/logo/equinox_bahari.png') }}"
+                 alt="Equinox Bahari Utama"
+                 style="transform:scale(1.9);">
         </div>
 
         <div class="partner-logo">
-            <img src="/image/pelindo.png" alt="Pelindo">
+            <img src="{{ asset('image/logo/GMS.png') }}"
+                 alt="GMS"
+                 style="transform:scale(5.4);">
         </div>
 
         <div class="partner-logo">
-            <img src="/image/silo.png" alt="Sillo Maritime">
+            <img src="{{ asset('image/logo/indo shiping.png') }}"
+                 alt="Indo Shipping"
+                 style="transform:scale(1.2);">
+        </div>
+        
+        <div class="partner-logo">
+            <img src="{{ asset('image/logo/Logo_BAG.png') }}"
+                 alt="BAG"
+                 style="transform:scale(1.4);">
         </div>
 
         <div class="partner-logo">
-            <img src="/image/pelni.png" alt="Pelni">
+            <img src="{{ asset('image/logo/pt_lintas_bahari.png') }}"
+                 alt="PT Lintas Bahari"
+                 style="transform:scale(1.5);">
+        </div>
+        
+        <div class="partner-logo">
+            <img src="{{ asset('image/logo/merah putih.png') }}"
+                 alt="Merah Putih Shipyard"
+                 style="transform:scale(4.3);">
         </div>
 
         <div class="partner-logo">
-            <img src="/image/pertamina.png" alt="Pertamina">
+            <img src="{{ asset('image/logo/naval_dipo.png') }}"
+                 alt="Naval Dipo Service"
+                 style="transform:scale(2.0);">
         </div>
 
         <div class="partner-logo">
-            <img src="/image/MERATUS2.png" alt="SPIL">
+            <img src="{{ asset('image/logo/PT_delta_oriental.png') }}"
+                 alt="PT Delta Oriental"
+                 style="transform:scale(1.6);">
         </div>
 
         <div class="partner-logo">
-            <img src="/image/asdp.png" alt="ASDP">
+            <img src="{{ asset('image/logo/Karya_teknik.png') }}"
+                 alt="Karya Teknik"
+                 style="transform:scale(1.0);">
+        </div>
+
+        <div class="partner-logo">
+            <img src="{{ asset('image/logo/pt_samudra_marine.png') }}"
+                 alt="PT Samudra Marine"
+                 style="transform:scale(2.9);">
+        </div>
+        
+
+        {{-- MITRA LAINNYA --}}
+        <div class="partner-logo partner-more">
+            <div class="partner-more-content">
+                <strong>100+</strong>
+                <span>Mitra Terpercaya</span>
+                <small>Bersama membangun industri Indonesia</small>
+            </div>
         </div>
 
     </div>
 
 </section>
 
+<style>
+    /* AREA MITRA */
+    .partners-vesca {
+        width: 100%;
+        padding: 50px 4% 65px;
+        box-sizing: border-box;
+        background: #fff;
+    }
+
+    .partners-vesca .partners-heading {
+        text-align: center;
+        margin-bottom: 35px;
+    }
+
+    .partners-vesca .partners-eyebrow {
+        display: block;
+        color: #2674cf;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+    }
+
+    .partners-vesca .partners-heading h2 {
+        color: #071b49;
+        font-size: 30px;
+        margin: 0 0 12px;
+    }
+
+    .partners-vesca .partners-heading p {
+        color: #667085;
+        font-size: 15px;
+        line-height: 1.7;
+        margin: 0;
+    }
+
+    /* DESKTOP: 2 BARIS, 6 KOLOM, TANPA KOTAK */
+    .partners-vesca .partners-grid {
+        display: grid;
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        grid-template-rows: repeat(2, 135px);
+        align-items: center;
+        justify-items: center;
+        gap: 18px 15px;
+        max-width: 1250px;
+        margin: 0 auto;
+    }
+
+    /* LOGO TANPA BORDER ATAU BACKGROUND */
+    .partners-vesca .partner-logo {
+        width: 100%;
+        min-width: 0;
+        height: 135px;
+        padding: 10px;
+        box-sizing: border-box;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border: none;
+        border-radius: 0;
+        background: transparent;
+        box-shadow: none;
+        overflow: visible;
+    }
+
+    /* UKURAN DASAR LOGO */
+    .partners-vesca .partner-logo img {
+        display: block;
+        width: 150px;
+        height: 100px;
+        max-width: 100%;
+        object-fit: contain;
+        object-position: center;
+        transition: transform .25s ease;
+    }
+
+    /* KARTU 100+ TETAP BERWARNA */
+    .partners-vesca .partner-logo.partner-more {
+        background: linear-gradient(135deg, #071b49, #174b91);
+        border-radius: 12px;
+        color: #fff;
+        text-align: center;
+    }
+
+    .partners-vesca .partner-more-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .partners-vesca .partner-more strong {
+        color: #fff;
+        font-size: 38px;
+        line-height: 1.1;
+    }
+
+    .partners-vesca .partner-more span {
+        color: #fff;
+        font-size: 14px;
+        font-weight: 700;
+    }
+
+    .partners-vesca .partner-more small {
+        color: #dce8fa;
+        font-size: 10px;
+        line-height: 1.4;
+    }
+
+    /* TABLET */
+    @media (min-width: 601px) and (max-width: 900px) {
+        .partners-vesca .partners-grid {
+            grid-template-columns: repeat(6, minmax(0, 1fr));
+            grid-template-rows: repeat(2, 110px);
+            gap: 12px 5px;
+        }
+
+        .partners-vesca .partner-logo {
+            height: 110px;
+            padding: 5px;
+        }
+
+        .partners-vesca .partner-logo img {
+            height: 80px;
+        }
+
+        .partners-vesca .partner-more strong {
+            font-size: 26px;
+        }
+
+        .partners-vesca .partner-more span {
+            font-size: 11px;
+        }
+
+        .partners-vesca .partner-more small {
+            font-size: 8px;
+        }
+    }
+
+    /* HP: SUSUNAN MENYESUAIKAN LAYAR */
+    @media (max-width: 600px) {
+        .partners-vesca {
+            padding: 40px 12px 50px;
+        }
+
+        .partners-vesca .partners-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            grid-template-rows: auto;
+            gap: 8px;
+        }
+
+        .partners-vesca .partner-logo {
+            height: 105px;
+            padding: 6px;
+        }
+
+        .partners-vesca .partner-logo img {
+            width: 135px;
+            height: 80px;
+        }
+
+        .partners-vesca .partner-more strong {
+            font-size: 32px;
+        }
+
+        .partners-vesca .partner-more span {
+            font-size: 13px;
+        }
+    }
+</style>
 
 @endsection

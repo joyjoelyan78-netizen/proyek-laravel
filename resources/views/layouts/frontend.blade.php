@@ -110,6 +110,12 @@
                     </a>
                 </li>
 
+                <li data-aos="fade-down" data-aos-delay="550">
+                    <a href="{{ route('galeri') }}">
+                        Galeri
+                    </a>
+                </li>
+
 
                 <li data-aos="fade-down" data-aos-delay="600">
                     <a href="{{ route('hubungi') }}">
@@ -202,6 +208,7 @@
                 <li><a href="/">Beranda</a></li>
                 <li><a href="{{ url('/tentang-kami') }}">Perusahaan</a></li>
                 <li><a href="{{ route('produk') }}">Produk</a></li>
+                <li><a href="{{ route('galeri') }}">Galeri</a></li>
                 <li><a href="{{ route('hubungi') }}">Hubungi Kami</a></li>
                 </ul>
             </div>

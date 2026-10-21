@@ -125,7 +125,7 @@ return [
             'judul'     => 'Aluminium Anode Tipe Baut',
             'subjudul'  => 'Ship Hull Bolt Type',
             'ringkas'   => 'Anoda aluminium untuk lambung kapal, dipasang dengan baut.',
-            'gambar'    => ['aluminium-baut-1.jpg', 'aluminium-baut-2.jpg'],
+            'gambar'    => ['alumunium bolt.png', 'Aluminium.png'],
             'kegunaan'  => [
                 'Proteksi katodik lambung kapal (ship hull)',
                 'Dipasang dengan baut, jarak baut mengikuti tipe',
@@ -156,7 +156,7 @@ return [
             'judul'     => 'Aluminium Rod Anode',
             'subjudul'  => 'Anoda Batang',
             'ringkas'   => 'Anoda aluminium berbentuk batang / silinder dalam berbagai ukuran.',
-            'gambar'    => ['aluminium-batang.jpg'],
+            'gambar'    => ['alu rod.png'],
             'kegunaan'  => [
                 'Berbentuk batang (rod) dan silinder',
                 'Tersedia dalam berbagai panjang dan diameter',
@@ -195,7 +195,7 @@ return [
             'judul'     => 'Aluminium Anode Platform / Jetty',
             'subjudul'  => 'Platform or Jetty Aluminium Anodes',
             'ringkas'   => 'Anoda aluminium berukuran besar untuk platform dan dermaga (jetty).',
-            'gambar'    => ['aluminium-platform-1.jpg', 'aluminium-platform-2.jpg'],
+            'gambar'    => ['alu jetty.png', 'alu jetty 2.png'],
             'kegunaan'  => [
                 'Untuk platform dan dermaga (jetty)',
                 'Dilengkapi core baja untuk pemasangan',
@@ -288,7 +288,7 @@ return [
             'judul'     => 'Zinc Tank Anode',
             'subjudul'  => 'Anoda untuk Tangki',
             'ringkas'   => 'Anoda zinc untuk tangki (tank anode), dilengkapi core baja.',
-            'gambar'    => ['zinc-tank-1.jpg', 'zinc-tank-2.jpg'],
+            'gambar'    => ['tank 1.png', 'tank 2.png'],
             'kegunaan'  => [
                 'Dirancang untuk tangki (tank anode)',
                 'Dilengkapi core baja untuk pemasangan',
@@ -315,7 +315,7 @@ return [
             'judul'     => 'Zinc Rod Anode',
             'subjudul'  => 'Anoda Batang',
             'ringkas'   => 'Anoda zinc berbentuk batang / silinder dalam berbagai ukuran.',
-            'gambar'    => ['zinc-batang.jpg'],
+            'gambar'    => ['rod 1.png'],
             'kegunaan'  => [
                 'Berbentuk batang (rod) dan silinder',
                 'Tersedia dalam berbagai panjang dan diameter',

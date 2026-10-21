@@ -16,12 +16,12 @@ return [
 
     // Nomor WhatsApp utama (dipakai tombol WhatsApp di halaman produk, penawaran, konsultasi).
     // Format internasional tanpa + dan spasi. Bisa diganti lewat .env: VESCA_WHATSAPP=62812xxxxxxx
-    'whatsapp' => env('VESCA_WHATSAPP', '6281212051709'),
+    'whatsapp' => env('VESCA_WHATSAPP', '6282124999922'),
 
     // Nomor yang tampil di footer. 'label' = tampilan, 'nomor' = format WhatsApp.
     'kontak_wa' => [
-        ['label' => '0812-1205-1709', 'nomor' => '6281212051709'],
-        ['label' => '0853-1306-0003', 'nomor' => '6285313060003'],
+        ['label' => '0821-2499-9922', 'nomor' => '6282124999922'],
+        ['label' => '0818-758-457', 'nomor' => '62818758457'],
     ],
 
     'sla_respon' => env('VESCA_SLA_RESPON', '1x24 jam kerja'),

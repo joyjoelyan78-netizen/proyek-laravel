@@ -30,6 +30,14 @@
             <strong>{{ $nomor }}</strong>
         </div>
 
+        @if (session('email_success'))
+            <p>Notifikasi permintaan penawaran berhasil dikirim ke tim kami.</p>
+        @endif
+
+        @if (session('email_warning'))
+            <p role="alert">{{ session('email_warning') }}</p>
+        @endif
+
         <p>
             Simpan nomor ini untuk memudahkan Anda saat menghubungi kami.
             Surat penawaran resmi akan dikirim melalui email atau WhatsApp

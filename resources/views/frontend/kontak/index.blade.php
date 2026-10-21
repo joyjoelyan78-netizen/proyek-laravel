@@ -80,12 +80,33 @@
             {{-- FORM KONTAK --}}
             <div class="kontak-form">
                 <h2>Kirim Pertanyaan</h2>
+                @if (session('success'))
+                    <div class="alert alert-success" role="alert">
+                        {{ session('success') }}
+                    </div>
+                @endif
+
+                @if (session('email_error'))
+                    <div class="alert alert-danger" role="alert">
+                        {{ session('email_error') }}
+                    </div>
+                @endif
+
+                @if ($errors->any())
+                    <div class="alert alert-danger" role="alert">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 <p class="form-description">
                     Isi formulir berikut untuk menyampaikan pertanyaan
                     kepada tim PT Vescarindo Utama.
                 </p>
 
-                <form action="#" method="POST">
+                <form action="{{ route('hubungi.store') }}" method="POST">
                     @csrf
 
                     <div class="form-group">
